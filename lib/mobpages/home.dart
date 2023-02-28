@@ -1,6 +1,7 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:gnr8/mobpages/pages.dart';
 import 'package:gnr8/utils/utils.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,8 +16,16 @@ class _HomePageState extends State<HomePage> {
 
   List<IconData> iconList = [
     FontAwesomeIcons.leaf,
+    FontAwesomeIcons.chartSimple,
     FontAwesomeIcons.map,
     FontAwesomeIcons.gear,
+  ];
+
+  List<Widget> pages = [
+    ProjectsPage(),
+    AnalyticsWidget(),
+    MapPage(),
+    SettingsPage()
   ];
   int _bottomNavIndex = 0;
 
@@ -28,9 +37,7 @@ class _HomePageState extends State<HomePage> {
         title: SizedBox(
             height: 30, child: Image.asset("assets/images/logoFlat.png")),
       ),
-      body: Center(
-        child: Text("Home Page"),
-      ),
+      body: pages[_bottomNavIndex],
       bottomNavigationBar: AnimatedBottomNavigationBar(
         activeColor: AppColors.primary,
         leftCornerRadius: 32,
