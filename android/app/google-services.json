@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "544065708380",
+    "project_id": "gnr8dapp",
+    "storage_bucket": "gnr8dapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:544065708380:android:fb5630bda494c7d8fb2199",
+        "android_client_info": {
+          "package_name": "com.example.gnr8mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "544065708380-om7cgvcu5njv1qvofasjap3gfuo6r798.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCauvulAMCt8iMTZzf2D7uEFMpQ_i5aS00"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "544065708380-om7cgvcu5njv1qvofasjap3gfuo6r798.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
