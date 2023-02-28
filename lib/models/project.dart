@@ -1,11 +1,13 @@
 class Project {
   final String id;
+  final Owner owner;
   final String name;
   final String image;
   final String description;
   late final String? video;
   late final Hypercert? hypercert;
   Project({
+    required this.owner,
     required this.id,
     required this.description,
     required this.image,
@@ -14,6 +16,8 @@ class Project {
     this.hypercert,
   });
 }
+
+class Owner {}
 
 class Hypercert {
   Hypercert({
