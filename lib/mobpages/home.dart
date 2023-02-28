@@ -18,6 +18,7 @@ class _HomePageState extends State<HomePage> {
     FontAwesomeIcons.leaf,
     FontAwesomeIcons.chartSimple,
     FontAwesomeIcons.map,
+    FontAwesomeIcons.wallet,
     FontAwesomeIcons.gear,
   ];
 
@@ -25,6 +26,7 @@ class _HomePageState extends State<HomePage> {
     ProjectsPage(),
     AnalyticsWidget(),
     MapPage(),
+    WalletPage(),
     SettingsPage()
   ];
   int _bottomNavIndex = 0;
