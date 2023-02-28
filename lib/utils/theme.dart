@@ -3,6 +3,9 @@ import 'package:gnr8/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 ThemeData gnr8theme = ThemeData(
+  appBarTheme: AppBarTheme(
+    titleTextStyle: TextStyle(color: Colors.white),
+  ),
   brightness: Brightness.dark,
   colorScheme: ColorScheme(
     surface: AppColors.black,

@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:gnr8/mobpages/project.dart';
 import 'package:gnr8/utils/utils.dart';
 
+import '../models/models.dart';
+
 class ProjectCard extends StatelessWidget {
-  final String name;
-  final ImageProvider image;
-  final String description;
+  final Project project;
   const ProjectCard({
     Key? key,
-    required this.description,
-    required this.image,
-    required this.name,
+    required this.project,
   }) : super(key: key);
 
   @override
@@ -28,31 +27,43 @@ class ProjectCard extends StatelessWidget {
         color: AppColors.black,
         borderOnForeground: true,
         clipBehavior: Clip.antiAlias,
-        child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(image: image, fit: BoxFit.cover),
-          ),
-          child: Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              padding: EdgeInsets.all(10),
-              color: Colors.black54,
-              height: 150,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    name,
-                    style: Styles.cardTitle,
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    description,
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
-                ],
+        child: InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: ((context) => ProjectPage(project: project)),
+              ),
+            );
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: NetworkImage(project.image), fit: BoxFit.cover),
+            ),
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                padding: EdgeInsets.all(10),
+                color: Colors.black54,
+                height: 150,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      project.name,
+                      style: Styles.cardTitle,
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      project.description,
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
