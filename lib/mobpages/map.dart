@@ -105,39 +105,6 @@ class _MapPageState extends State<MapPage> {
   /// Methods and Functions
   ///
 
-  /* Map<String, dynamic> formClaim() {
-    return {
-      "name": "Chico&Rita",
-      "slug": "chico-rita-genesis",
-      "category": "NFT art",
-      "year": "2021",
-      "logo":
-          "https://lh3.googleusercontent.com/N0SnyqXKQzGKdapwoHyiCtjg9NY5mNYIA9NYil7Quc8yJ_GhMpRaRNMT1M2ETBG62e26oM5MXJeedB1uQzSZTHlPQJ3qFhnVJ_vlMA=s130"
-    };
-  }
- */
-  /* Future<dynamic> setGeoMarker(double lat, double lng) async {
-    final FirebaseDatabase _db = FirebaseDatabase.instance;
-    Geofire.initialize(pathToReference);
-    DatabaseReference _claimsRef = _db.ref().child(pathToStorage);
-    String key = _claimsRef.push().key;
-    _claimsRef.child(key).set(formClaim());
-    await Geofire.setLocation(key, lat, lng);
-  }
-
-  _handleTap(LatLng _poi) {
-    setGeoMarker(_poi.latitude, _poi.longitude);
-    /* setState(() {
-      _marker = [];
-      _marker.add(
-        Marker(
-          markerId: MarkerId(_poi.toString()),
-          position: _poi,
-        ),
-      );
-    }); */
-  } */
-
   /* void _getClaim(String key, double lat, double lng) async {
     var result = await _db.getClaimColl(key);
     var data = result.snapshot.value;
@@ -297,7 +264,7 @@ class _MapPageState extends State<MapPage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: const Text("SMA METAverse"),
+        title: const Text("Dragon's Guild Lair"),
       ),
       body: StreamBuilder<LocationData>(
         stream: location.onLocationChanged,
