@@ -45,5 +45,20 @@ ThemeData gnr8theme = ThemeData(
     titleSmall: TextStyle(
       color: Colors.white,
     ),
+    labelLarge: TextStyle(
+      color: Colors.white,
+      fontSize: 24,
+      fontWeight: FontWeight.w100,
+    ),
+    labelMedium: TextStyle(
+      color: Colors.white,
+      fontSize: 20,
+      fontWeight: FontWeight.w100,
+    ),
+    labelSmall: TextStyle(
+      color: Colors.white,
+      fontSize: 14,
+      fontWeight: FontWeight.w100,
+    ),
   ),
 );
