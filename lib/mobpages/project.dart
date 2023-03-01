@@ -137,7 +137,7 @@ class _ProjectPageState extends State<ProjectPage>
                 },
               ),
               IndexedStack(
-                alignment: Alignment.center,
+                alignment: Alignment.topCenter,
                 children: _views,
                 index: _index,
               )
