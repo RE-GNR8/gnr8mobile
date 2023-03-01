@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gnr8/models/models.dart';
 
 import '../shared/shared.dart';
@@ -56,8 +57,30 @@ class _ProjectPageState extends State<ProjectPage>
       ),
       Visibility(
         child: Container(
-          child: Center(
-            child: Text("Technical"),
+          padding: EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Base Documents",
+                style: theme.labelMedium,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Card(
+                child: ListTile(
+                  contentPadding: EdgeInsets.all(10),
+                  leading: Icon(FontAwesomeIcons.filePdf),
+                  title: Text("Environmental Risk Analysis"),
+                  trailing: IconButton(
+                    icon: Icon(FontAwesomeIcons.comments),
+                    onPressed: () {},
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),
