@@ -20,7 +20,7 @@ ThemeData gnr8theme = ThemeData(
     onError: Colors.redAccent,
     error: Colors.red,
   ),
-  textTheme: GoogleFonts.montserratTextTheme().copyWith(
+  textTheme: GoogleFonts.ralewayTextTheme().copyWith(
     bodySmall: TextStyle(
       color: Colors.white,
     ),
