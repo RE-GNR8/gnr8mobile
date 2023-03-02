@@ -6,6 +6,7 @@ class Project {
   final String description;
   late final String? video;
   late final Hypercert? hypercert;
+  late final List<BaseDocument>? documents;
   Project({
     required this.owner,
     required this.id,
@@ -14,10 +15,18 @@ class Project {
     required this.name,
     this.video,
     this.hypercert,
+    this.documents,
   });
 }
 
 class Owner {}
+
+class BaseDocument {
+  final String name;
+  final String type;
+  final String uri;
+  BaseDocument({required this.name, required this.type, required this.uri});
+}
 
 class Hypercert {
   Hypercert({

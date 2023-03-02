@@ -71,6 +71,10 @@ class _ProjectPageState extends State<ProjectPage>
               ),
               Card(
                 child: ListTile(
+                  onTap: () {
+                    Tools.launchWeb(
+                        "https://firebasestorage.googleapis.com/v0/b/gnr8dapp.appspot.com/o/impactSMA.pdf?alt=media&token=ec8d7e7c-6848-4708-a3f3-1e756dcd3952");
+                  },
                   contentPadding: EdgeInsets.all(10),
                   leading: Icon(FontAwesomeIcons.filePdf),
                   title: Text("Environmental Risk Analysis"),

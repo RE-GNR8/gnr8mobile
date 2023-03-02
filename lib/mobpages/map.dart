@@ -207,37 +207,8 @@ class _MapPageState extends State<MapPage> {
   } */
 
   Future<void> initPlatformState() async {
-    //Intializing geoFire
-    //Geofire.initialize(pathToReference);
-
     try {
       LocationData loc = await location.getLocation();
-
-      /* Geofire.queryAtLocation(loc.latitude!, loc.longitude!, 10)!.listen((map) {
-        if (map != null) {
-          var callBack = map['callBack'];
-
-          switch (callBack) {
-            case Geofire.onKeyEntered:
-              keysRetrieved.add(map["key"]);
-              //_getClaim(map["key"], map["latitude"], map["longitude"]);
-              break;
-
-            case Geofire.onKeyExited:
-              keysRetrieved.remove(map["key"]);
-              break;
-
-            case Geofire.onKeyMoved:
-              break;
-
-            case Geofire.onGeoQueryReady:
-              _claimsLoaded = true;
-              break;
-          }
-        }
-      }).onError((error) {
-        throw error;
-      }); */
     } on PlatformException {
 //      response = 'Failed to get platform version.';
     }

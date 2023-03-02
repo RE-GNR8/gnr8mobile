@@ -10,6 +10,10 @@ class WebHome extends StatefulWidget {
 class _WebHomeState extends State<WebHome> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Center(
+        child: Text("Web Home Page"),
+      ),
+    );
   }
 }
