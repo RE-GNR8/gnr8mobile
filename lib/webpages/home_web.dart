@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gnr8/utils/utils.dart';
 
+import '../services/services.dart';
+import '../shared/shared.dart';
+
 class WebHome extends StatefulWidget {
   WebHome({Key? key}) : super(key: key);
 
@@ -55,13 +58,18 @@ class _WebHomeState extends State<WebHome> {
             child: Column(
               children: [
                 Text(
-                    "We are on a mission to restore soil and accelerate the creation of environmental services, browse thru the regenerative projects that "),
+                  "We have gathered a set of proven methodologies, funding and decentralized data gathering mechanism to regenerate soils.",
+                  style: TextStyle(color: Colors.black, fontSize: 20),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
                 Text(
-                  "Join Us!",
+                  "Support GNR8 Projects!",
                   style: TextStyle(
                     color: AppColors.back,
-                    fontSize: 50,
-                    letterSpacing: -2,
+                    fontSize: 40,
+                    letterSpacing: -1,
                     fontWeight: FontWeight.bold,
                   ),
                   softWrap: true,
@@ -69,6 +77,16 @@ class _WebHomeState extends State<WebHome> {
               ],
             ),
           ),
+          Container(
+            padding: EdgeInsets.all(50),
+            child: Wrap(
+              children: [
+                ProjectCard(
+                  project: projects[0],
+                )
+              ],
+            ),
+          )
         ],
       ),
     );
