@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gnr8/mobpages/pages.dart';
+import 'package:gnr8/services/services.dart';
 import 'package:gnr8/utils/utils.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:gnr8/webpages/webpages.dart';
@@ -20,7 +21,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'GNR8',
       theme: gnr8theme,
-      home: !kIsWeb ? HomePage() : WebHome(),
+      home: !kIsWeb
+          ? HomePage()
+          : ProjectWebPage(
+              project: projects[0],
+            ),
     );
   }
 }

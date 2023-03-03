@@ -25,28 +25,56 @@ class _ProjectWebPageState extends State<ProjectWebPage> {
   @override
   Widget build(BuildContext context) {
     Size screen = MediaQuery.of(context).size;
+    TextTheme theme = Theme.of(context).textTheme;
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
+        title: Image.asset("assets/images/logoFlat.png"),
         elevation: 0,
-        title: Text(widget.project.name),
+        backgroundColor: Colors.transparent,
       ),
-      body: ListView(
-        children: [
-          Container(
-            height: screen.height * .8,
-            color: AppColors.secondary,
-            child: Row(
-              children: [
-                SizedBox(
-                  width: screen.width * .65,
-                  child: widget.project.video != null
-                      ? VideoWidget(uri: "${widget.project.video}")
-                      : Image.network(widget.project.image),
+      body: Container(
+        height: screen.height,
+        color: AppColors.secondary,
+        child: SafeArea(
+          child: ListView(
+            children: [
+              Container(
+                padding: EdgeInsets.all(30),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      widget.project.name,
+                      style: theme.headlineMedium,
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(widget.project.description),
+                  ],
                 ),
-              ],
-            ),
-          )
-        ],
+              ),
+              Container(
+                height: screen.height * .7,
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: screen.width * .65,
+                      child: widget.project.video != null
+                          ? VideoWidget(uri: "${widget.project.video}")
+                          : Image.network(widget.project.image),
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(20),
+                      child: Column(),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
