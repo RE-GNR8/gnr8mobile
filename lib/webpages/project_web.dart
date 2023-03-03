@@ -33,7 +33,7 @@ class _ProjectWebPageState extends State<ProjectWebPage> {
       body: ListView(
         children: [
           Container(
-            height: screen.height * .4,
+            height: screen.height * .8,
             color: AppColors.secondary,
             child: Row(
               children: [
@@ -42,7 +42,7 @@ class _ProjectWebPageState extends State<ProjectWebPage> {
                   child: widget.project.video != null
                       ? VideoWidget(uri: "${widget.project.video}")
                       : Image.network(widget.project.image),
-                )
+                ),
               ],
             ),
           )

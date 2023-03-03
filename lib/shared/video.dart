@@ -62,7 +62,7 @@ class _VideoWidgetState extends State<VideoWidget> {
     //Size screen = MediaQuery.of(context).size;
     return Container(
         alignment: Alignment.center,
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.all(30),
         child: _chewie != null &&
                 _chewie!.videoPlayerController.value.isInitialized
             ? Chewie(controller: _chewie!)
