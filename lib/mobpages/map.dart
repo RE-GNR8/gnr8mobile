@@ -208,7 +208,7 @@ class _MapPageState extends State<MapPage> {
 
   Future<void> initPlatformState() async {
     try {
-      LocationData loc = await location.getLocation();
+      //LocationData loc = await location.getLocation();
     } on PlatformException {
 //      response = 'Failed to get platform version.';
     }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gnr8/shared/shared.dart';
+import 'package:gnr8/utils/colors.dart';
 
 import '../models/models.dart';
 
@@ -30,12 +32,19 @@ class _ProjectWebPageState extends State<ProjectWebPage> {
       ),
       body: ListView(
         children: [
-          Row(
-            children: [
-              SizedBox(
-                width: screen.width * .7,
-              )
-            ],
+          Container(
+            height: screen.height * .4,
+            color: AppColors.secondary,
+            child: Row(
+              children: [
+                SizedBox(
+                  width: screen.width * .65,
+                  child: widget.project.video != null
+                      ? VideoWidget(uri: "${widget.project.video}")
+                      : Image.network(widget.project.image),
+                )
+              ],
+            ),
           )
         ],
       ),
