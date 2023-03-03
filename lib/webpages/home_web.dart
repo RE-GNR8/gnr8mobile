@@ -20,12 +20,16 @@ class _WebHomeState extends State<WebHome> {
           toolbarHeight: 100,
           flexibleSpace: Container(
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
                   alignment: Alignment.topLeft,
-                  child: Image.asset(
-                    "assets/images/logoFlat.png",
+                  child: SizedBox(
+                    height: 50,
+                    child: Image.asset(
+                      "assets/images/logoFlat.png",
+                    ),
                   ),
                 ),
                 Spacer(),
@@ -81,7 +85,7 @@ class _WebHomeState extends State<WebHome> {
             padding: EdgeInsets.all(50),
             child: Wrap(
               children: [
-                ProjectCard(
+                ProjectCardWeb(
                   project: projects[0],
                 )
               ],

@@ -25,6 +25,7 @@ dependencies:
   url_launcher: ^6.1.10
   flutter_web3: ^2.1.9
   get: ^4.6.5
+  firebase_storage: ^11.0.14
   #flutter_geofire: ^2.0.3
 
 dev_dependencies:
