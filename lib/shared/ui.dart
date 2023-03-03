@@ -14,7 +14,9 @@ class ImpactIndicator extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(5),
       decoration: BoxDecoration(
-          color: AppColors.secondary, borderRadius: BorderRadius.circular(10)),
+        color: AppColors.accent,
+        borderRadius: BorderRadius.circular(10),
+      ),
       height: 50,
       width: 50,
       child: Icon(
