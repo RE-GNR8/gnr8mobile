@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gnr8/mobpages/project.dart';
 import 'package:gnr8/utils/utils.dart';
+import 'package:gnr8/webpages/webpages.dart';
 
 import '../models/models.dart';
 
@@ -102,7 +103,7 @@ class ProjectCardWeb extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: ((context) => ProjectPage(project: project)),
+                builder: ((context) => ProjectWebPage(project: project)),
               ),
             );
           },

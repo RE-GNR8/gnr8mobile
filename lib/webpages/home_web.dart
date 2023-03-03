@@ -14,7 +14,7 @@ class WebHome extends StatefulWidget {
 class _WebHomeState extends State<WebHome> {
   @override
   Widget build(BuildContext context) {
-    Size screen = MediaQuery.of(context).size;
+    //Size screen = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
           toolbarHeight: 100,
@@ -57,7 +57,6 @@ class _WebHomeState extends State<WebHome> {
         children: [
           Container(
             padding: EdgeInsets.all(50),
-            height: screen.height * .20,
             color: AppColors.accent,
             child: Column(
               children: [

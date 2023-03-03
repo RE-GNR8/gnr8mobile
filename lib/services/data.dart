@@ -9,5 +9,6 @@ List<Project> projects = [
     image:
         "https://firebasestorage.googleapis.com/v0/b/gnr8dapp.appspot.com/o/billionAgave.png?alt=media&token=f948e397-9c41-4756-943b-d3efd9848349",
     name: "The Billion Agave Project",
+    video: "WGsvDi4T_MQ",
   )
 ];
