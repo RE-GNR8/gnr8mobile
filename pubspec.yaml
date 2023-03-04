@@ -16,7 +16,7 @@ dependencies:
   icons_launcher: ^2.1.0
   google_fonts: ^4.0.3
   google_maps: ^6.2.0
-  youtube_player_iframe: ^4.0.4
+#  youtube_player_iframe: ^4.0.4
   animated_bottom_navigation_bar: ^1.1.0+1
   font_awesome_flutter: ^10.4.0
   firebase_core: ^2.7.0
@@ -29,6 +29,7 @@ dependencies:
   firebase_storage: ^11.0.14
   video_player: ^2.5.3
   chewie: ^1.4.0
+  magic_sdk: ^2.0.2
   #flutter_geofire: ^2.0.3
 
 dev_dependencies:
