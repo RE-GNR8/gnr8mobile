@@ -56,7 +56,7 @@ class _ProjectPageState extends State<ProjectPage>
   Future<void> _processPhoto() async {
     final ImagePicker picker = await ImagePicker();
     final XFile? image =
-        await picker.pickImage(source: ImageSource.gallery, imageQuality: 5);
+        await picker.pickImage(source: ImageSource.camera, imageQuality: 5);
     File file = File(image!.path);
     await _ai.processImage(file)
         ? Tools.showAlertInfo(
@@ -81,64 +81,10 @@ class _ProjectPageState extends State<ProjectPage>
         child: _buildGeneral(theme),
       ),
       Visibility(
-        child: Container(
-          padding: EdgeInsets.all(20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Base Documents",
-                style: theme.labelMedium,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Card(
-                child: ListTile(
-                  onTap: () {
-                    Tools.launchWeb(
-                        "https://firebasestorage.googleapis.com/v0/b/gnr8dapp.appspot.com/o/impactSMA.pdf?alt=media&token=ec8d7e7c-6848-4708-a3f3-1e756dcd3952");
-                  },
-                  contentPadding: EdgeInsets.all(10),
-                  leading: Icon(FontAwesomeIcons.filePdf),
-                  title: Text("Environmental Risk Analysis"),
-                  trailing: IconButton(
-                    icon: Icon(FontAwesomeIcons.comments),
-                    onPressed: () {},
-                  ),
-                ),
-              )
-            ],
-          ),
-        ),
+        child: _buildTechnicals(theme),
       ),
       Visibility(
-        child: Container(
-          padding: EdgeInsets.all(20),
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  "Work",
-                  style: theme.labelMedium,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Card(
-                  child: ListTile(
-                    onTap: () {
-                      _processPhoto();
-                    },
-                    contentPadding: EdgeInsets.all(10),
-                    leading: Icon(FontAwesomeIcons.vial),
-                    title: Text("Soil Organic Matter Sample"),
-                  ),
-                )
-              ]),
-        ),
+        child: _buildMember(theme),
       ),
     ];
     Size screen = MediaQuery.of(context).size;
@@ -197,18 +143,94 @@ class _ProjectPageState extends State<ProjectPage>
         ));
   }
 
+  Container _buildMember(TextTheme theme) {
+    return Container(
+      padding: EdgeInsets.all(20),
+      child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(
+              "Benefits",
+              style: theme.labelMedium,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            ...widget.project.benefits!
+                .map((e) => BenefitTile(benefit: e))
+                .toList(),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "Work",
+              style: theme.labelMedium,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Card(
+              child: ListTile(
+                onTap: () {
+                  _processPhoto();
+                },
+                contentPadding: EdgeInsets.all(10),
+                leading: Icon(FontAwesomeIcons.vial),
+                title: Text("Soil Organic Matter Sample"),
+              ),
+            )
+          ]),
+    );
+  }
+
+  Container _buildTechnicals(TextTheme theme) {
+    return Container(
+      padding: EdgeInsets.all(20),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Base Documents",
+            style: theme.labelMedium,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          ...widget.project.documents!.map((e) => DocTile(document: e)).toList()
+        ],
+      ),
+    );
+  }
+
   Container _buildGeneral(TextTheme theme) {
     return Container(
       padding: EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          widget.project.video != null
+              ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Video Presentation",
+                      style: theme.labelMedium,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    VideoWidget(uri: "${widget.project.video}")
+                  ],
+                )
+              : SizedBox(),
           Text(
-            "Support",
+            "Support the project!",
             style: theme.labelMedium,
           ),
           SizedBox(
-            height: 10,
+            height: 20,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

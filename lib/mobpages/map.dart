@@ -15,10 +15,10 @@ import 'package:flutter/material.dart';
 import '../utils/utils.dart';
 
 //const double zoom = 20.5;
-const double zoom = 13.5;
+const double zoom = 9.5;
 const double tilt = 50;
 const double bearing = 30;
-const LatLng sourceLoc = LatLng(20.914157, -100.743801);
+const LatLng sourceLoc = LatLng(39.784054, -104.971344);
 
 class MapPage extends StatefulWidget {
   const MapPage({Key? key}) : super(key: key);

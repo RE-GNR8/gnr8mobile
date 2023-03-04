@@ -10,6 +10,7 @@ class Project {
   late final String? video;
   late final Hypercert? hypercert;
   late final List<BaseDocument>? documents;
+  late final List<Benefit>? benefits;
 
   Project({
     required this.owner,
@@ -20,7 +21,21 @@ class Project {
     required this.impact,
     this.video,
     this.hypercert,
+    this.benefits,
     required this.documents,
+  });
+}
+
+class Benefit {
+  String name;
+  String description;
+  String logo;
+  String link;
+  Benefit({
+    required this.description,
+    required this.link,
+    required this.logo,
+    required this.name,
   });
 }
 
@@ -35,12 +50,12 @@ class Owner {}
 
 class BaseDocument {
   final String name;
-  final String type;
+  final IconData icon;
   final String uri;
   final String description;
   BaseDocument({
     required this.name,
-    required this.type,
+    required this.icon,
     required this.uri,
     required this.description,
   });

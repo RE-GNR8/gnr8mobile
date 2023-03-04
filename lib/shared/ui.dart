@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gnr8/utils/utils.dart';
 
 import '../models/models.dart';
@@ -90,6 +91,67 @@ class WorkChip extends StatelessWidget {
         ),
         Text(work),
       ]),
+    );
+  }
+}
+
+class DocTile extends StatelessWidget {
+  final BaseDocument document;
+  const DocTile({
+    required this.document,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: ListTile(
+        onTap: () {
+          Tools.launchWeb(document.uri);
+        },
+        contentPadding: EdgeInsets.all(10),
+        isThreeLine: true,
+        leading: Icon(document.icon),
+        title: Text(document.name),
+        subtitle: Text(
+          document.description,
+          style: TextStyle(fontSize: 10, fontWeight: FontWeight.w100),
+        ),
+        trailing: IconButton(
+          icon: Icon(FontAwesomeIcons.comments),
+          onPressed: () {},
+        ),
+      ),
+    );
+  }
+}
+
+class BenefitTile extends StatelessWidget {
+  final Benefit benefit;
+  const BenefitTile({
+    required this.benefit,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: ListTile(
+        onTap: () {
+          Tools.launchWeb(benefit.link);
+        },
+        contentPadding: EdgeInsets.all(10),
+        isThreeLine: true,
+        leading: CircleAvatar(
+          backgroundImage: AssetImage("${benefit.logo}"),
+          radius: 20,
+        ),
+        title: Text(benefit.name),
+        subtitle: Text(
+          benefit.description,
+          style: TextStyle(fontSize: 10, fontWeight: FontWeight.w100),
+        ),
+      ),
     );
   }
 }
