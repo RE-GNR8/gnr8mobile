@@ -1,0 +1,3 @@
+[submodule "hypercerts"]
+	path = hypercerts
+	url = https://github.com/hypercerts-org/hypercerts.git
