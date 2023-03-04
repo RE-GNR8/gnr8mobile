@@ -55,9 +55,22 @@ class _ProjectPageState extends State<ProjectPage>
   //* Methods and Services
   Future<void> _processPhoto() async {
     final ImagePicker picker = await ImagePicker();
-    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+    final XFile? image =
+        await picker.pickImage(source: ImageSource.gallery, imageQuality: 5);
     File file = File(image!.path);
-    await _ai.processImage(file);
+    await _ai.processImage(file)
+        ? Tools.showAlertInfo(
+            title: "Thank you!",
+            body:
+                "You have Succesfully Contributed to the project, and will be receiving a portion of the benefits.",
+            context: context,
+          )
+        : Tools.showAlertError(
+            title: "Wrong Photo",
+            body:
+                "The image you contributed is not adequate to do Soil Object Matter, please try again",
+            context: context,
+          );
   }
 
   @override
