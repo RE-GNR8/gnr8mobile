@@ -51,5 +51,7 @@
 	<string>GNR8 requires access to your location in order to send you opportunities to visit the GNR8 project locations to verify progress and earn steward rewards.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>GNR8 requires access to your photo library</string>
+	<key>NSCameraUsageDescription</key>
+	<string>GNR8 requires access to your camera to survey Soil Organic Matter with Machine Learning</string>
 </dict>
 </plist>
