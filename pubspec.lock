@@ -97,6 +97,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.2"
+  cryptography:
+    dependency: transitive
+    description:
+      name: cryptography
+      sha256: d567808b0640adc63e0f58dbea85123175f2674056fe1df5685bcb2866b4d153
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.0"
   csslib:
     dependency: transitive
     description:
@@ -153,6 +161,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.4"
+  fixnum:
+    dependency: transitive
+    description:
+      name: fixnum
+      sha256: "25517a4deb0c03aa0f32fd12db525856438902d9c16536311e76cdc57b31d7d1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   fl_chart:
     dependency: "direct main"
     description:
@@ -368,6 +384,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.4"
+  json_annotation:
+    dependency: transitive
+    description:
+      name: json_annotation
+      sha256: c33da08e136c3df0190bd5bbe51ae1df4a7d96e7954d1d7249fea2968a72d317
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.8.0"
   location:
     dependency: "direct main"
     description:
@@ -488,6 +512,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.1.0"
+  pinch_zoom:
+    dependency: "direct main"
+    description:
+      name: pinch_zoom
+      sha256: ad12872281742726afaf03438d99a4572c584a612630768953beb6dfd6f9389a
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   platform:
     dependency: transitive
     description:
@@ -677,6 +709,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.4"
+  uuid:
+    dependency: transitive
+    description:
+      name: uuid
+      sha256: "648e103079f7c64a36dc7d39369cabb358d377078a051d6ae2ad3aa539519313"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.7"
   vector_math:
     dependency: transitive
     description:
@@ -765,6 +805,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.2.1"
+  walletconnect_dart:
+    dependency: "direct main"
+    description:
+      name: walletconnect_dart
+      sha256: "6d69d3f7ed43b4a111458da0ba078f4ea291ff11328068c9cbf5cab3bd86593f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.11"
+  web_socket_channel:
+    dependency: transitive
+    description:
+      name: web_socket_channel
+      sha256: ca49c0bc209c687b887f30527fb6a9d80040b072cc2990f34b9bec3e7663101b
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.0"
   webview_flutter:
     dependency: transitive
     description:

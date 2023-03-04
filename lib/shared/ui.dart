@@ -1,28 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:gnr8/utils/utils.dart';
 
+import '../models/models.dart';
+
 class ImpactIndicator extends StatelessWidget {
   const ImpactIndicator({
     super.key,
-    required this.icon,
+    required this.impact,
   });
 
-  final IconData icon;
+  final Impact impact;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(5),
-      decoration: BoxDecoration(
-        color: AppColors.accent,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      height: 50,
-      width: 50,
-      child: Icon(
-        icon,
-        color: AppColors.black,
-        size: 30,
+    return Tooltip(
+      message: "${impact.name} : ${impact.description}",
+      child: Container(
+        margin: EdgeInsets.all(5),
+        decoration: BoxDecoration(
+          color: AppColors.accent,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        height: 50,
+        width: 50,
+        child: Icon(
+          impact.icon,
+          color: AppColors.black,
+          size: 30,
+        ),
       ),
     );
   }

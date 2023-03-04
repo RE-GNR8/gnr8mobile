@@ -1,22 +1,34 @@
+import 'package:flutter/material.dart';
+
 class Project {
   final String id;
   final Owner owner;
   final String name;
   final String image;
   final String description;
+  final List<Impact> impact;
   late final String? video;
   late final Hypercert? hypercert;
   late final List<BaseDocument>? documents;
+
   Project({
     required this.owner,
     required this.id,
     required this.description,
     required this.image,
     required this.name,
+    required this.impact,
     this.video,
     this.hypercert,
-    this.documents,
+    required this.documents,
   });
+}
+
+class Impact {
+  final String name;
+  final String description;
+  final IconData icon;
+  Impact({required this.description, required this.name, required this.icon});
 }
 
 class Owner {}
@@ -25,7 +37,13 @@ class BaseDocument {
   final String name;
   final String type;
   final String uri;
-  BaseDocument({required this.name, required this.type, required this.uri});
+  final String description;
+  BaseDocument({
+    required this.name,
+    required this.type,
+    required this.uri,
+    required this.description,
+  });
 }
 
 class Hypercert {

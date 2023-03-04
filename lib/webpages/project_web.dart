@@ -145,12 +145,9 @@ class _ProjectWebPageState extends State<ProjectWebPage>
                             height: 10,
                           ),
                           Row(
-                            children: [
-                              ImpactIndicator(icon: Icons.water),
-                              ImpactIndicator(icon: Icons.agriculture),
-                              ImpactIndicator(icon: Icons.food_bank),
-                              ImpactIndicator(icon: Icons.landslide)
-                            ],
+                            children: widget.project.impact
+                                .map((e) => ImpactIndicator(impact: e))
+                                .toList(),
                           ),
                           SizedBox(
                             height: 20,
