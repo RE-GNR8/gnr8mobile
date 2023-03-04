@@ -49,5 +49,7 @@
 	<string>GNR8 requires access to your location in order to provide you with information of local businesses that are part of the GNR8 network.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>GNR8 requires access to your location in order to send you opportunities to visit the GNR8 project locations to verify progress and earn steward rewards.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>GNR8 requires access to your photo library</string>
 </dict>
 </plist>

@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gnr8/models/models.dart';
+import 'package:gnr8/services/services.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../shared/shared.dart';
 import '../utils/utils.dart';
@@ -16,7 +20,7 @@ class ProjectPage extends StatefulWidget {
 class _ProjectPageState extends State<ProjectPage>
     with TickerProviderStateMixin {
   //* Variables and Services
-
+  AI _ai = AI();
   late TabController _controller;
   int _index = 0;
   static const List<Tab> _tabs = [
@@ -46,6 +50,14 @@ class _ProjectPageState extends State<ProjectPage>
   void dispose() {
     _controller.dispose();
     super.dispose();
+  }
+
+  //* Methods and Services
+  Future<void> _processPhoto() async {
+    final ImagePicker picker = await ImagePicker();
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+    File file = File(image!.path);
+    await _ai.processImage(file);
   }
 
   @override
@@ -89,8 +101,30 @@ class _ProjectPageState extends State<ProjectPage>
         ),
       ),
       Visibility(
-        child: const Center(
-          child: Text("Members"),
+        child: Container(
+          padding: EdgeInsets.all(20),
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "Work",
+                  style: theme.labelMedium,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Card(
+                  child: ListTile(
+                    onTap: () {
+                      _processPhoto();
+                    },
+                    contentPadding: EdgeInsets.all(10),
+                    leading: Icon(FontAwesomeIcons.vial),
+                    title: Text("Soil Organic Matter Sample"),
+                  ),
+                )
+              ]),
         ),
       ),
     ];
