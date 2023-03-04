@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:gnr8/services/magic/login.dart';
 
 class WalletPage extends StatefulWidget {
   WalletPage({Key? key}) : super(key: key);
+
 
   @override
   State<WalletPage> createState() => _WalletPageState();
@@ -22,7 +24,12 @@ class _WalletPageState extends State<WalletPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            ElevatedButton(onPressed: () {}, child: Text('Login with Magic ✨'))
+            ElevatedButton(onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LoginPage()),
+              );
+            }, child: Text('Login with Magic ✨'))
           ],
         ),
       ),
