@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gnr8/mobpages/pages.dart';
 
 class AnalyticsWidget extends StatelessWidget {
   const AnalyticsWidget({Key? key}) : super(key: key);
@@ -24,7 +25,20 @@ class AnalyticsWidget extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          Image.asset("assets/images/agaveAnalytics.png"),
+          InkWell(
+            child: Image.asset("assets/images/agaveAnalytics.png"),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: ((context) => ZoomableImage(
+                        image: "assets/images/agaveAnalytics.png",
+                        title: "Agro-reforestry with Agave",
+                      )),
+                ),
+              );
+            },
+          ),
           SizedBox(
             height: 10,
           ),
@@ -35,7 +49,20 @@ class AnalyticsWidget extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          Image.asset("assets/images/hempAnalytics.png"),
+          InkWell(
+            child: Image.asset("assets/images/hempAnalytics.png"),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: ((context) => ZoomableImage(
+                        image: "assets/images/hempAnalytics.png",
+                        title: "Land Remediation with Hemp",
+                      )),
+                ),
+              );
+            },
+          ),
           SizedBox(
             height: 10,
           ),
@@ -46,7 +73,20 @@ class AnalyticsWidget extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          Image.asset("assets/images/grazingAnalytics.png")
+          InkWell(
+            child: Image.asset("assets/images/grazingAnalytics.png"),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: ((context) => ZoomableImage(
+                        image: "assets/images/grazingAnalytics.png",
+                        title: "Holistic Land Management / Grazing",
+                      )),
+                ),
+              );
+            },
+          )
         ],
       ),
     );
