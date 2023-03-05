@@ -65,7 +65,10 @@ class _VideoWidgetState extends State<VideoWidget> {
         padding: EdgeInsets.all(30),
         child: _chewie != null &&
                 _chewie!.videoPlayerController.value.isInitialized
-            ? Chewie(controller: _chewie!)
+            ? AspectRatio(
+                child: Chewie(controller: _chewie!),
+                aspectRatio: _controller.value.aspectRatio,
+              )
             : Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

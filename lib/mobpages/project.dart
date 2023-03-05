@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gnr8/models/models.dart';
+import 'package:gnr8/services/services.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../shared/shared.dart';
 import '../utils/utils.dart';
@@ -16,7 +20,7 @@ class ProjectPage extends StatefulWidget {
 class _ProjectPageState extends State<ProjectPage>
     with TickerProviderStateMixin {
   //* Variables and Services
-
+  AI _ai = AI();
   late TabController _controller;
   int _index = 0;
   static const List<Tab> _tabs = [
@@ -48,6 +52,27 @@ class _ProjectPageState extends State<ProjectPage>
     super.dispose();
   }
 
+  //* Methods and Services
+  Future<void> _processPhoto() async {
+    final ImagePicker picker = await ImagePicker();
+    final XFile? image =
+        await picker.pickImage(source: ImageSource.camera, imageQuality: 5);
+    File file = File(image!.path);
+    await _ai.processImage(file)
+        ? Tools.showAlertInfo(
+            title: "Thank you!",
+            body:
+                "You have Succesfully Contributed to the project, and will be receiving a portion of the benefits.",
+            context: context,
+          )
+        : Tools.showAlertError(
+            title: "Wrong Photo",
+            body:
+                "The image you contributed is not adequate to do Soil Object Matter, please try again",
+            context: context,
+          );
+  }
+
   @override
   Widget build(BuildContext context) {
     TextTheme theme = Theme.of(context).textTheme;
@@ -56,42 +81,10 @@ class _ProjectPageState extends State<ProjectPage>
         child: _buildGeneral(theme),
       ),
       Visibility(
-        child: Container(
-          padding: EdgeInsets.all(20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Base Documents",
-                style: theme.labelMedium,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Card(
-                child: ListTile(
-                  onTap: () {
-                    Tools.launchWeb(
-                        "https://firebasestorage.googleapis.com/v0/b/gnr8dapp.appspot.com/o/impactSMA.pdf?alt=media&token=ec8d7e7c-6848-4708-a3f3-1e756dcd3952");
-                  },
-                  contentPadding: EdgeInsets.all(10),
-                  leading: Icon(FontAwesomeIcons.filePdf),
-                  title: Text("Environmental Risk Analysis"),
-                  trailing: IconButton(
-                    icon: Icon(FontAwesomeIcons.comments),
-                    onPressed: () {},
-                  ),
-                ),
-              )
-            ],
-          ),
-        ),
+        child: _buildTechnicals(theme),
       ),
       Visibility(
-        child: const Center(
-          child: Text("Members"),
-        ),
+        child: _buildMember(theme),
       ),
     ];
     Size screen = MediaQuery.of(context).size;
@@ -150,18 +143,94 @@ class _ProjectPageState extends State<ProjectPage>
         ));
   }
 
+  Container _buildMember(TextTheme theme) {
+    return Container(
+      padding: EdgeInsets.all(20),
+      child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(
+              "Benefits",
+              style: theme.labelMedium,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            ...widget.project.benefits!
+                .map((e) => BenefitTile(benefit: e))
+                .toList(),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "Work",
+              style: theme.labelMedium,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Card(
+              child: ListTile(
+                onTap: () {
+                  _processPhoto();
+                },
+                contentPadding: EdgeInsets.all(10),
+                leading: Icon(FontAwesomeIcons.vial),
+                title: Text("Soil Organic Matter Sample"),
+              ),
+            )
+          ]),
+    );
+  }
+
+  Container _buildTechnicals(TextTheme theme) {
+    return Container(
+      padding: EdgeInsets.all(20),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Base Documents",
+            style: theme.labelMedium,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          ...widget.project.documents!.map((e) => DocTile(document: e)).toList()
+        ],
+      ),
+    );
+  }
+
   Container _buildGeneral(TextTheme theme) {
     return Container(
       padding: EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          widget.project.video != null
+              ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Video Presentation",
+                      style: theme.labelMedium,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    VideoWidget(uri: "${widget.project.video}")
+                  ],
+                )
+              : SizedBox(),
           Text(
-            "Support",
+            "Support the project!",
             style: theme.labelMedium,
           ),
           SizedBox(
-            height: 10,
+            height: 20,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -182,12 +251,9 @@ class _ProjectPageState extends State<ProjectPage>
             height: 10,
           ),
           Row(
-            children: [
-              ImpactIndicator(icon: Icons.water),
-              ImpactIndicator(icon: Icons.agriculture),
-              ImpactIndicator(icon: Icons.food_bank),
-              ImpactIndicator(icon: Icons.landslide)
-            ],
+            children: widget.project.impact
+                .map((e) => ImpactIndicator(impact: e))
+                .toList(),
           ),
           SizedBox(
             height: 20,

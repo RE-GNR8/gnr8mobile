@@ -10,11 +10,11 @@ class ProjectsPage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Wrap(
-        children: [
-          ProjectCard(
-            project: projects[0],
-          )
-        ],
+        children: projects
+            .map((e) => ProjectCard(
+                  project: e,
+                ))
+            .toList(),
       ),
     );
   }
