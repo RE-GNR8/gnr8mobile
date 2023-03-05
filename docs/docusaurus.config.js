@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'GNR8',
   tagline: 'Funding and collaboration for regenerative agriculture',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/logoFlat.png',
 
   // Set the production url of your site here
   url: 'https://re-gnr8.github.io',
@@ -63,12 +63,12 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/logoFlat.png',
       navbar: {
-        title: 'My Site',
+        title: '',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'Empowering regenerative agriculture',
+          src: 'img/logoFlat.png',
         },
         items: [
           {
