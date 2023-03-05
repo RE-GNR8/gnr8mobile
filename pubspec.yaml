@@ -33,6 +33,7 @@ dependencies:
   rflutter_alert: ^2.0.4
   walletconnect_dart: ^0.0.11
   pinch_zoom: ^1.0.0
+  chatview: ^1.2.0+1
   #flutter_geofire: ^2.0.3
 
 dev_dependencies:

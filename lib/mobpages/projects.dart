@@ -9,12 +9,17 @@ class ProjectsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20),
-      child: Wrap(
-        children: projects
-            .map((e) => ProjectCard(
-                  project: e,
-                ))
-            .toList(),
+      child: ListView(
+        children: [
+          Wrap(
+            runSpacing: 15,
+            children: projects
+                .map((e) => ProjectCard(
+                      project: e,
+                    ))
+                .toList(),
+          ),
+        ],
       ),
     );
   }

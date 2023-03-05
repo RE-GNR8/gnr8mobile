@@ -53,10 +53,12 @@ class _ProjectPageState extends State<ProjectPage>
   }
 
   //* Methods and Services
-  Future<void> _processPhoto() async {
+  Future<void> _processPhoto(bool isLibrary) async {
     final ImagePicker picker = await ImagePicker();
-    final XFile? image =
-        await picker.pickImage(source: ImageSource.camera, imageQuality: 5);
+
+    final XFile? image = await picker.pickImage(
+        source: isLibrary ? ImageSource.camera : ImageSource.gallery,
+        imageQuality: 5);
     File file = File(image!.path);
     await _ai.processImage(file)
         ? Tools.showAlertInfo(
@@ -173,10 +175,20 @@ class _ProjectPageState extends State<ProjectPage>
             Card(
               child: ListTile(
                 onTap: () {
-                  _processPhoto();
+                  _processPhoto(false);
                 },
                 contentPadding: EdgeInsets.all(10),
                 leading: Icon(FontAwesomeIcons.vial),
+                title: Text("Soil Organic Matter Sample"),
+              ),
+            ),
+            Card(
+              child: ListTile(
+                onTap: () {
+                  _processPhoto(false);
+                },
+                contentPadding: EdgeInsets.all(10),
+                leading: Icon(FontAwesomeIcons.image),
                 title: Text("Soil Organic Matter Sample"),
               ),
             )

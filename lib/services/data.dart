@@ -92,9 +92,19 @@ List<Project> projects = [
     name: "Grand River Hemp Club",
     impact: [
       Impact(
-        description: "Eliminate Toxins",
-        name: "Toxins Removal",
-        icon: FontAwesomeIcons.virusSlash,
+        description: "Prevents Landslides",
+        name: "Landslides",
+        icon: Icons.landslide,
+      ),
+      Impact(
+        description: "Restores Watershed",
+        name: "Watershed",
+        icon: Icons.water,
+      ),
+      Impact(
+        description: "Provides food security",
+        name: "Food Security",
+        icon: Icons.food_bank,
       ),
       Impact(
         description: "Better Nutrition",
@@ -104,47 +114,123 @@ List<Project> projects = [
     ],
     documents: [
       BaseDocument(
-          name: "Cherry Wine Crude Oil Sample",
+          name: "Environmental Risk Analisis",
           icon: FontAwesomeIcons.filePdf,
           uri:
-              "https://firebasestorage.googleapis.com/v0/b/gnr8dapp.appspot.com/o/Cherry%20Wine%20x%20Charrdonney%20Crude%20Oil%20Sample%2011_12_19.pdf?alt=media&token=41076450-71ff-41f8-aa8e-01cb5796db20",
+              "https://firebasestorage.googleapis.com/v0/b/gnr8dapp.appspot.com/o/impactSMA.pdf?alt=media&token=ec8d7e7c-6848-4708-a3f3-1e756dcd3952",
           description:
-              "Document showing the quality of the product that comes from the farm"),
+              "Executed by the GIZ and it establishes the Anual Average Loss, in the tourism sector."),
       BaseDocument(
-          name: "Inspection Documents",
-          icon: FontAwesomeIcons.filePdf,
+          name: "Methodology Overview",
+          icon: FontAwesomeIcons.link,
           uri:
-              "https://firebasestorage.googleapis.com/v0/b/gnr8dapp.appspot.com/o/Inspection%20Passed%20Grand%20River%20Holdings%2078208.pdf?alt=media&token=b9a30a16-4f15-4532-8f67-cebfb98166db",
+              "https://regenerationinternational.org/2022/04/05/agave-power-greening-the-desert/",
           description:
               "A detailed run down of the economic, environmental and social benefit of the project"),
       BaseDocument(
-        name: "Compliance",
-        icon: FontAwesomeIcons.fileWord,
-        uri:
-            "https://firebasestorage.googleapis.com/v0/b/gnr8dapp.appspot.com/o/Grand%20River%20Holdings%2078208%20Final%20Report.pdf?alt=media&token=3d73da09-220c-4cf6-860a-8d688fdb6fa0",
-        description: "State compliance certificate",
-      )
+          name: "Methodology Handbook",
+          icon: FontAwesomeIcons.fileWord,
+          uri:
+              "https://regenerationinternational.org/wp-content/uploads/Handbook-Planning-Implementation-and-Organic-Management-of-Agave.docx",
+          description:
+              "A detailed run down of the economic, environmental and social benefit of the project")
     ],
     benefits: [
       Benefit(
-        description:
-            "Be hosted in 3 exclusive dinners at Casa Dragones, the spiritual home of Casa Dragones Tequila",
-        link: "https://casadragones.com/us",
-        logo: "assets/images/cdlogo.png",
-        name: "Casa Dragones",
+        description: "A Yearly Tequila Case",
+        link: "",
+        logo: "assets/images/spork.png",
+        name: "Tequila",
       ),
       Benefit(
-        description: "Receive a 40% discount, in your stay on May and July",
-        link: "https://www.rosewoodhotels.com/en/san-miguel-de-allende",
-        logo: "assets/images/rosewood.png",
+        description:
+            "It is your Birthday and we celebrate it with a deep discount",
+        link: "",
+        logo: "assets/images/logoSquar.png",
         name: "Rosewood San Miguel de Allende",
       ),
       Benefit(
         description:
-            "Receive a 20% discount, in every meal in the outstanding culinary destination, The Restaurant.",
-        link: "http://therestaurantsanmiguel.com/",
-        logo: "assets/images/therestaurant.png",
-        name: "The Restaurant",
+            "Once Per year you will recieve an Hand picked basket of Craft CBD Products of all different types.",
+        link: "",
+        logo: "assets/images/logoSquar.png",
+        name: "Gift Basket!",
+      ),
+    ],
+  ),
+  Project(
+    owner: new Owner(),
+    id: "03",
+    description:
+        "Tequila ReGeneraciones is a fine spirit's club that aims to create the best tequila in the world, by promoting permacultural agave farms.",
+    image:
+        "https://firebasestorage.googleapis.com/v0/b/gnr8dapp.appspot.com/o/regeneraciones.png?alt=media&token=50682ca3-ca17-432a-b503-41e4618935c0",
+    name: "ReGeneraciones Tequila",
+    impact: [
+      Impact(
+        description: "Prevents Landslides",
+        name: "Landslides",
+        icon: Icons.landslide,
+      ),
+      Impact(
+        description: "Restores Watershed",
+        name: "Watershed",
+        icon: Icons.water,
+      ),
+      Impact(
+        description: "Provides food security",
+        name: "Food Security",
+        icon: Icons.food_bank,
+      ),
+      Impact(
+        description: "Better Nutrition",
+        name: "Soil Regeneration",
+        icon: Icons.agriculture,
+      ),
+    ],
+    documents: [
+      BaseDocument(
+          name: "Environmental Risk Analisis",
+          icon: FontAwesomeIcons.filePdf,
+          uri:
+              "https://firebasestorage.googleapis.com/v0/b/gnr8dapp.appspot.com/o/impactSMA.pdf?alt=media&token=ec8d7e7c-6848-4708-a3f3-1e756dcd3952",
+          description:
+              "Executed by the GIZ and it establishes the Anual Average Loss, in the tourism sector."),
+      BaseDocument(
+          name: "Methodology Overview",
+          icon: FontAwesomeIcons.link,
+          uri:
+              "https://regenerationinternational.org/2022/04/05/agave-power-greening-the-desert/",
+          description:
+              "A detailed run down of the economic, environmental and social benefit of the project"),
+      BaseDocument(
+          name: "Methodology Handbook",
+          icon: FontAwesomeIcons.fileWord,
+          uri:
+              "https://regenerationinternational.org/wp-content/uploads/Handbook-Planning-Implementation-and-Organic-Management-of-Agave.docx",
+          description:
+              "A detailed run down of the economic, environmental and social benefit of the project")
+    ],
+    benefits: [
+      Benefit(
+        description: "Lifetime Membership to ReGeneraciones CoOp",
+        link: "",
+        logo: "assets/images/spork.png",
+        name: "CBD Discount",
+      ),
+      Benefit(
+        description:
+            "It is your Birthday and we celebrate it with a deep discount",
+        link: "",
+        logo: "assets/images/logoSquar.png",
+        name: "Rosewood San Miguel de Allende",
+      ),
+      Benefit(
+        description:
+            "Once Per year you will recieve an Hand picked basket of Craft CBD Products of all different types.",
+        link: "",
+        logo: "assets/images/logoSquar.png",
+        name: "Gift Basket!",
       ),
     ],
   ),
