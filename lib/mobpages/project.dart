@@ -185,7 +185,7 @@ class _ProjectPageState extends State<ProjectPage>
             Card(
               child: ListTile(
                 onTap: () {
-                  _processPhoto(false);
+                  _processPhoto(true);
                 },
                 contentPadding: EdgeInsets.all(10),
                 leading: Icon(FontAwesomeIcons.image),

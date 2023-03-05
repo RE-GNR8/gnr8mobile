@@ -30,7 +30,7 @@ class _SettingsPageState extends State<SettingsPage> {
           Card(
             child: ListTile(
               onTap: () {
-                _wallet.loginViaMM();
+                _wallet.mintClaim();
               },
               leading: ImageIcon(
                 AssetImage("assets/images/walletconnect.png"),

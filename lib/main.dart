@@ -19,23 +19,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Stack(children: [
+        home: Stack(
+      children: [
         MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'GNR8',
           theme: gnr8theme,
-          home: !kIsWeb
-              ? HomePage()
-              : ProjectWebPage(
-            project: projects[0],
-          ),
+          home: !kIsWeb ? SplashPage() : WebHome(),
         ),
         Magic.instance.relayer
-      ],)
-      debugShowCheckedModeBanner: false,
-      title: 'GNR8',
-      theme: gnr8theme,
-      home: !kIsWeb ? HomePage() : WebHome(),
-    );
+      ],
+    ));
   }
 }
