@@ -16,7 +16,7 @@ dependencies:
   icons_launcher: ^2.1.0
   google_fonts: ^4.0.3
   google_maps: ^6.2.0
-  youtube_player_iframe: ^4.0.4
+#  youtube_player_iframe: ^4.0.4
   animated_bottom_navigation_bar: ^1.1.0+1
   font_awesome_flutter: ^10.4.0
   location: ^4.4.0
@@ -29,6 +29,7 @@ dependencies:
   google_mlkit_object_detection: ^0.6.0
   video_player: ^2.5.3
   chewie: ^1.4.0
+  magic_sdk: ^2.0.2
   image_picker: ^0.8.6+4
   rflutter_alert: ^2.0.4
   walletconnect_dart: ^0.0.11
