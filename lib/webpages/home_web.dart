@@ -83,11 +83,8 @@ class _WebHomeState extends State<WebHome> {
           Container(
             padding: EdgeInsets.all(50),
             child: Wrap(
-              children: [
-                ProjectCardWeb(
-                  project: projects[0],
-                )
-              ],
+              children:
+                  projects.map((e) => ProjectCardWeb(project: e)).toList(),
             ),
           )
         ],

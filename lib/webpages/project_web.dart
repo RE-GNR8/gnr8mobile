@@ -184,7 +184,7 @@ class _ProjectWebPageState extends State<ProjectWebPage>
                   ],
                 ),
               ),
-              Container(
+              /* Container(
                 color: AppColors.grey,
                 padding: EdgeInsets.all(33),
                 child: Column(
@@ -210,7 +210,7 @@ class _ProjectWebPageState extends State<ProjectWebPage>
                     )
                   ],
                 ),
-              ),
+              ), */
             ],
           ),
         ),

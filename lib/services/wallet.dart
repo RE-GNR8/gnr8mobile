@@ -10,6 +10,8 @@ class Wallet extends GetxController {
   final magic = Magic.instance;
   final client = Web3Client.custom(Magic.instance.provider);
   final credential = MagicCredential(Magic.instance.provider);
+  final String baseURI =
+      "https://nftstorage.link/ipfs/bafybeianyt6td7xbqmr3ox6t7veibjpfdqznd3njsmgfm24potl3te4dsq/";
 
   final WalletConnect _connector = WalletConnect(
     bridge: 'https://bridge.walletconnect.org',
@@ -40,10 +42,10 @@ class Wallet extends GetxController {
     }
   }
 
-  Future<dynamic> mintClaim() async {
+  Future<dynamic> mintMembership() async {
     credential.getAccount();
     print(credential.address);
-    final contract = DeployedContract(
+    /* final contract = DeployedContract(
         ContractAbi.fromJson(esContract.contractAbi, "mint"),
         esContract.deployedAddress);
     final mintFunction = contract.function("mint");
@@ -51,7 +53,32 @@ class Wallet extends GetxController {
         credential,
         Transaction.callContract(
             contract: contract, function: mintFunction, parameters: [0, 1]));
-    return message;
+    return message; */
+  }
+
+  Future<dynamic> registerData() async {
+    credential.getAccount();
+    print(credential.address);
+    try {
+      final contract = DeployedContract(
+          ContractAbi.fromJson(esContract.contractAbi, "createRegistry"),
+          esContract.deployedAddress);
+      final registerFunction = contract.function("createRegistry");
+      var message = await client.sendTransaction(
+          credential,
+          Transaction.callContract(
+              contract: contract,
+              function: registerFunction,
+              parameters: [
+                1,
+                0,
+                "0xb14a4467c1743b2919b746affe48aa422dad51bd",
+                baseURI
+              ]));
+      return message;
+    } catch (e) {
+      rethrow;
+    }
   }
 
   void init() {

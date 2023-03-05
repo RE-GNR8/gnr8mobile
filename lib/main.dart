@@ -10,7 +10,9 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const MyApp());
-  Magic.instance = Magic("pk_live_EBE6D9D4806EDCEF");
+  if (!kIsWeb) {
+    Magic.instance = Magic("pk_live_EBE6D9D4806EDCEF");
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -22,12 +24,12 @@ class MyApp extends StatelessWidget {
         home: Stack(
       children: [
         MaterialApp(
-          debugShowCheckedModeBanner: false,
           title: 'GNR8',
           theme: gnr8theme,
           home: !kIsWeb ? SplashPage() : WebHome(),
+          debugShowCheckedModeBanner: false,
         ),
-        Magic.instance.relayer
+        !kIsWeb ? Magic.instance.relayer : SizedBox()
       ],
     ));
   }

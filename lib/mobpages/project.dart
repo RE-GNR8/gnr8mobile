@@ -21,6 +21,7 @@ class _ProjectPageState extends State<ProjectPage>
     with TickerProviderStateMixin {
   //* Variables and Services
   AI _ai = AI();
+  Wallet _wallet = Wallet();
   late TabController _controller;
   int _index = 0;
   static const List<Tab> _tabs = [
@@ -175,7 +176,8 @@ class _ProjectPageState extends State<ProjectPage>
             Card(
               child: ListTile(
                 onTap: () {
-                  _processPhoto(false);
+                  _wallet.mintMembership();
+                  //_processPhoto(true);
                 },
                 contentPadding: EdgeInsets.all(10),
                 leading: Icon(FontAwesomeIcons.vial),
@@ -184,8 +186,10 @@ class _ProjectPageState extends State<ProjectPage>
             ),
             Card(
               child: ListTile(
-                onTap: () {
-                  _processPhoto(true);
+                onTap: () async {
+                  var message = await _wallet.registerData();
+                  print(message);
+                  //_processPhoto(false);
                 },
                 contentPadding: EdgeInsets.all(10),
                 leading: Icon(FontAwesomeIcons.image),

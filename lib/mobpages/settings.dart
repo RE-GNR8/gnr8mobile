@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gnr8/services/services.dart';
+import 'package:gnr8/mobpages/pages.dart';
+import 'package:magic_sdk/magic_sdk.dart';
 
 class SettingsPage extends StatefulWidget {
   SettingsPage({Key? key}) : super(key: key);
@@ -10,8 +11,7 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   //* Variables and Services
-
-  Wallet _wallet = Wallet();
+  final magic = Magic.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -29,13 +29,13 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
           Card(
             child: ListTile(
-              onTap: () {
-                _wallet.mintClaim();
+              onTap: () async {
+                await magic.user.logout();
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => SplashPage()));
               },
-              leading: ImageIcon(
-                AssetImage("assets/images/walletconnect.png"),
-              ),
-              title: Text("Wallet Connect"),
+              leading: Icon(Icons.exit_to_app),
+              title: Text("Logout"),
             ),
           ),
         ],
