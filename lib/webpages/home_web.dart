@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gnr8/utils/utils.dart';
 
-import '../services/services.dart';
-import '../shared/shared.dart';
+import '../utils/utils.dart';
 
 class WebHome extends StatefulWidget {
   WebHome({Key? key}) : super(key: key);
@@ -14,11 +12,15 @@ class WebHome extends StatefulWidget {
 class _WebHomeState extends State<WebHome> {
   @override
   Widget build(BuildContext context) {
-    //Size screen = MediaQuery.of(context).size;
+    Size screen = MediaQuery.of(context).size;
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-          toolbarHeight: 100,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          toolbarHeight: 200,
           flexibleSpace: Container(
+            height: 200,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -26,14 +28,14 @@ class _WebHomeState extends State<WebHome> {
                   padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
                   alignment: Alignment.topLeft,
                   child: SizedBox(
-                    height: 50,
+                    height: 200,
                     child: Image.asset(
-                      "assets/images/logoFlat.png",
+                      "assets/images/logoFlatWhite.png",
                     ),
                   ),
                 ),
                 Spacer(),
-                ElevatedButton(
+                /* ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       padding:
                           EdgeInsets.symmetric(horizontal: 30, vertical: 20)),
@@ -45,49 +47,62 @@ class _WebHomeState extends State<WebHome> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                ),
+                ), */
                 SizedBox(
                   width: 30,
                 )
               ],
             ),
           )),
-      body: ListView(
-        shrinkWrap: true,
-        children: [
-          Container(
-            padding: EdgeInsets.all(50),
-            color: AppColors.accent,
-            child: Column(
-              children: [
-                Text(
-                  "We have gathered a set of proven methodologies, funding and decentralized data gathering mechanism to regenerate soils.",
-                  style: TextStyle(color: Colors.black, fontSize: 20),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  "Support GNR8 Projects!",
-                  style: TextStyle(
-                    color: AppColors.back,
-                    fontSize: 40,
-                    letterSpacing: -1,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  softWrap: true,
-                ),
-              ],
-            ),
+      body: Container(
+        height: screen.height,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/biomechanical.png"),
+            fit: BoxFit.cover,
           ),
-          Container(
-            padding: EdgeInsets.all(50),
-            child: Wrap(
-              children:
-                  projects.map((e) => ProjectCardWeb(project: e)).toList(),
-            ),
-          )
-        ],
+        ),
+        child: SafeArea(
+          child: ListView(
+            shrinkWrap: true,
+            children: [
+              Container(
+                padding: EdgeInsets.all(50),
+                child: Column(
+                  children: [
+                    Text(
+                      "We are the Motley Ds a community that is commited on developing impactful projects. \n\n We are working on launching the system soon, in the meantime you can support the project by\n purchasing a D, and joining the effort to regenerate our soils, our planet and our sanity.",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        height: 1.5,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.all(50),
+                child: Wrap(alignment: WrapAlignment.center, children: [
+                  SizedBox(
+                    width: 400,
+                    child: InkWell(
+                      onTap: () {
+                        Tools.launchWeb("https://motleyds.com/#/");
+                      },
+                      child: Image.asset("assets/images/Ds.png"),
+                    ),
+                  )
+                ]
+
+                    //projects.map((e) => ProjectCardWeb(project: e)).toList(),
+                    ),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
