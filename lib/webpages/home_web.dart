@@ -13,6 +13,7 @@ class _WebHomeState extends State<WebHome> {
   @override
   Widget build(BuildContext context) {
     Size screen = MediaQuery.of(context).size;
+    TextTheme theme = Theme.of(context).textTheme;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -58,7 +59,7 @@ class _WebHomeState extends State<WebHome> {
         height: screen.height,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/biomechanical.png"),
+            image: AssetImage("assets/images/biomechanical1.png"),
             fit: BoxFit.cover,
           ),
         ),
@@ -70,6 +71,14 @@ class _WebHomeState extends State<WebHome> {
                 padding: EdgeInsets.all(50),
                 child: Column(
                   children: [
+                    Text(
+                      "Coming Soon!",
+                      style: theme.titleLarge,
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(
+                      height: 50,
+                    ),
                     Text(
                       "We are the Motley Ds a community that is commited on developing impactful projects. \n\n We are working on launching the system soon, in the meantime you can support the project by\n purchasing a D, and joining the effort to regenerate our soils, our planet and our sanity.",
                       style: TextStyle(
@@ -85,17 +94,31 @@ class _WebHomeState extends State<WebHome> {
               ),
               Container(
                 padding: EdgeInsets.all(50),
-                child: Wrap(alignment: WrapAlignment.center, children: [
-                  SizedBox(
-                    width: 400,
-                    child: InkWell(
-                      onTap: () {
-                        Tools.launchWeb("https://motleyds.com/#/");
-                      },
-                      child: Image.asset("assets/images/Ds.png"),
-                    ),
-                  )
-                ]
+                child: Wrap(
+                    spacing: 30,
+                    runSpacing: 30,
+                    alignment: WrapAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: 400,
+                        child: InkWell(
+                          onTap: () {
+                            Tools.launchWeb(
+                                "https://5a6e8j7axnh.typeform.com/to/hDcTHlrK");
+                          },
+                          child: Image.asset("assets/images/registerEmail.png"),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 400,
+                        child: InkWell(
+                          onTap: () {
+                            Tools.launchWeb("https://motleyds.com/#/");
+                          },
+                          child: Image.asset("assets/images/mdweb.png"),
+                        ),
+                      ),
+                    ]
 
                     //projects.map((e) => ProjectCardWeb(project: e)).toList(),
                     ),

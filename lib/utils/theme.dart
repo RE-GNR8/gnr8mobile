@@ -35,6 +35,8 @@ ThemeData gnr8theme = ThemeData(
       color: Colors.white,
     ),
     titleLarge: TextStyle(
+      fontSize: 70,
+      fontWeight: FontWeight.w900,
       color: Colors.white,
     ),
     titleMedium: TextStyle(
