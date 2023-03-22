@@ -1,4 +1,4 @@
-package com.example.gnr8mobile
+package xyz. gnr8.app
 
 import io.flutter.embedding.android.FlutterActivity
 

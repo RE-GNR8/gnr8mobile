@@ -28,11 +28,13 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    Size screen = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Login'),
       ),
       body: Container(
+        width: screen.width,
         color: AppColors.black,
         padding: const EdgeInsets.all(30.0),
         child: Column(
@@ -68,6 +70,7 @@ class _LoginPageState extends State<LoginPage> {
                           );
                           ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
+                                  backgroundColor: AppColors.accent,
                                   content: Text('Check your email')));
                         }
                       },

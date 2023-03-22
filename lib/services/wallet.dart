@@ -65,16 +65,18 @@ class Wallet extends GetxController {
           esContract.deployedAddress);
       final registerFunction = contract.function("createRegistry");
       var message = await client.sendTransaction(
-          credential,
-          Transaction.callContract(
-              contract: contract,
-              function: registerFunction,
-              parameters: [
-                1,
-                0,
-                "0xb14a4467c1743b2919b746affe48aa422dad51bd",
-                baseURI
-              ]));
+        credential,
+        Transaction.callContract(
+          contract: contract,
+          function: registerFunction,
+          parameters: [
+            1,
+            0,
+            "0xb14a4467c1743b2919b746affe48aa422dad51bd",
+            baseURI
+          ],
+        ),
+      );
       return message;
     } catch (e) {
       rethrow;

@@ -176,8 +176,8 @@ class _ProjectPageState extends State<ProjectPage>
             Card(
               child: ListTile(
                 onTap: () {
-                  _wallet.mintMembership();
-                  //_processPhoto(true);
+                  //_wallet.mintMembership();
+                  _processPhoto(true);
                 },
                 contentPadding: EdgeInsets.all(10),
                 leading: Icon(FontAwesomeIcons.vial),

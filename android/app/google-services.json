@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:544065708380:android:fb5630bda494c7d8fb2199",
         "android_client_info": {
-          "package_name": "com.example.gnr8mobile"
+          "package_name": "xyz. gnr8.app"
         }
       },
       "oauth_client": [
@@ -29,6 +29,49 @@
             {
               "client_id": "544065708380-om7cgvcu5njv1qvofasjap3gfuo6r798.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "544065708380-40ug2ql9l3guu4skn1gd64sq70l122la.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "xyz.gnr8.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:544065708380:android:0e9f2df132f95532fb2199",
+        "android_client_info": {
+          "package_name": "xyz.gnr8.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "544065708380-om7cgvcu5njv1qvofasjap3gfuo6r798.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCauvulAMCt8iMTZzf2D7uEFMpQ_i5aS00"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "544065708380-om7cgvcu5njv1qvofasjap3gfuo6r798.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "544065708380-40ug2ql9l3guu4skn1gd64sq70l122la.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "xyz.gnr8.app"
+              }
             }
           ]
         }
