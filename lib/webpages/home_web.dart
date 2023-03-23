@@ -17,44 +17,45 @@ class _WebHomeState extends State<WebHome> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          toolbarHeight: 200,
-          flexibleSpace: Container(
-            height: 200,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-                  alignment: Alignment.topLeft,
-                  child: SizedBox(
-                    height: 200,
-                    child: Image.asset(
-                      "assets/images/logoFlatWhite.png",
-                    ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        toolbarHeight: 200,
+        flexibleSpace: Container(
+          height: 200,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+                alignment: Alignment.topLeft,
+                child: SizedBox(
+                  height: 200,
+                  child: Image.asset(
+                    "assets/images/logoFlatWhite.png",
                   ),
                 ),
-                Spacer(),
-                /* ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 30, vertical: 20)),
-                  onPressed: () {},
-                  child: Text(
-                    "Connect Wallet",
-                    style: TextStyle(
-                      color: AppColors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
+              ),
+              Spacer(),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 30, vertical: 20)),
+                onPressed: () {},
+                child: Text(
+                  "Connect Wallet",
+                  style: TextStyle(
+                    color: AppColors.black,
+                    fontWeight: FontWeight.bold,
                   ),
-                ), */
-                SizedBox(
-                  width: 30,
-                )
-              ],
-            ),
-          )),
+                ),
+              ),
+              SizedBox(
+                width: 30,
+              )
+            ],
+          ),
+        ),
+      ),
       body: Container(
         height: screen.height,
         decoration: BoxDecoration(
