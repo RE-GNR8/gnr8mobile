@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gnr8/mobpages/pages.dart';
 import 'package:gnr8/utils/utils.dart';
-import 'package:magic_sdk/magic_sdk.dart';
 
 class SplashPage extends StatefulWidget {
   SplashPage({Key? key}) : super(key: key);
@@ -14,15 +13,14 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      bool isLoggedIn = await Magic.instance.user.isLoggedIn();
-      if (isLoggedIn) {
+      /* if (isLoggedIn) {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
             builder: (BuildContext) => HomePage(),
           ),
         );
-      }
+      } */
     });
     super.initState();
   }
