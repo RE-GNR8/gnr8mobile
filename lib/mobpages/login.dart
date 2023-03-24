@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:magic_sdk/magic_sdk.dart';
+
 import 'package:gnr8/mobpages/pages.dart';
 
 import '../utils/utils.dart';
@@ -14,11 +14,11 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
-  final magic = Magic.instance;
+  
 
   Future loginFunction({required String email}) async {
     try {
-      await magic.auth.loginWithMagicLink(email: _emailController.text);
+     
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => HomePage()));
     } catch (e) {

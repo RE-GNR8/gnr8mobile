@@ -1,7 +1,4 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:magic_sdk/magic_sdk.dart';
 
 class LogoutPage extends StatefulWidget {
   const LogoutPage({Key? key}) : super(key: key);
@@ -11,10 +8,7 @@ class LogoutPage extends StatefulWidget {
 }
 
 class _LogoutPageState extends State<LogoutPage> {
-  final magic = Magic.instance;
-
   Future logout() async {
-    await magic.user.logout();
     Navigator.pop(context);
   }
 

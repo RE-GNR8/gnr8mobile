@@ -1,4 +1,3 @@
-import 'package:magic_sdk/magic_sdk.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:walletconnect_dart/walletconnect_dart.dart';
 import 'package:get/get.dart';
@@ -7,9 +6,7 @@ import 'package:web3dart/web3dart.dart';
 class Wallet extends GetxController {
   //* Variables
   var _session;
-  final magic = Magic.instance;
-  final client = Web3Client.custom(Magic.instance.provider);
-  final credential = MagicCredential(Magic.instance.provider);
+
   final String baseURI =
       "https://nftstorage.link/ipfs/bafybeianyt6td7xbqmr3ox6t7veibjpfdqznd3njsmgfm24potl3te4dsq/";
 
@@ -43,8 +40,8 @@ class Wallet extends GetxController {
   }
 
   Future<dynamic> mintMembership() async {
-    credential.getAccount();
-    print(credential.address);
+/*     credential.getAccount();
+    print(credential.address); */
     /* final contract = DeployedContract(
         ContractAbi.fromJson(esContract.contractAbi, "mint"),
         esContract.deployedAddress);
@@ -57,14 +54,14 @@ class Wallet extends GetxController {
   }
 
   Future<dynamic> registerData() async {
-    credential.getAccount();
-    print(credential.address);
+    /* credential.getAccount();
+    print(credential.address); */
     try {
       final contract = DeployedContract(
           ContractAbi.fromJson(esContract.contractAbi, "createRegistry"),
           esContract.deployedAddress);
       final registerFunction = contract.function("createRegistry");
-      var message = await client.sendTransaction(
+      /*  var message = await client.sendTransaction(
         credential,
         Transaction.callContract(
           contract: contract,
@@ -76,8 +73,7 @@ class Wallet extends GetxController {
             baseURI
           ],
         ),
-      );
-      return message;
+      ); */
     } catch (e) {
       rethrow;
     }
