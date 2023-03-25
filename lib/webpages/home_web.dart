@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gnr8/shared/shared.dart';
 
+import '../services/services.dart';
 import '../utils/utils.dart';
 
 class WebHome extends StatefulWidget {
@@ -13,7 +15,7 @@ class _WebHomeState extends State<WebHome> {
   @override
   Widget build(BuildContext context) {
     Size screen = MediaQuery.of(context).size;
-    TextTheme theme = Theme.of(context).textTheme;
+    //TextTheme theme = Theme.of(context).textTheme;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -68,7 +70,7 @@ class _WebHomeState extends State<WebHome> {
           child: ListView(
             shrinkWrap: true,
             children: [
-              Container(
+              /* Container(
                 padding: EdgeInsets.all(50),
                 child: Column(
                   children: [
@@ -92,14 +94,14 @@ class _WebHomeState extends State<WebHome> {
                     ),
                   ],
                 ),
-              ),
+              ), */
               Container(
                 padding: EdgeInsets.all(50),
                 child: Wrap(
-                    spacing: 30,
-                    runSpacing: 30,
-                    alignment: WrapAlignment.center,
-                    children: [
+                  spacing: 30,
+                  runSpacing: 30,
+                  alignment: WrapAlignment.center,
+                  /* children: [
                       SizedBox(
                         width: 400,
                         child: InkWell(
@@ -119,10 +121,11 @@ class _WebHomeState extends State<WebHome> {
                           child: Image.asset("assets/images/mdweb.png"),
                         ),
                       ),
-                    ]
+                    ] */
 
-                    //projects.map((e) => ProjectCardWeb(project: e)).toList(),
-                    ),
+                  children:
+                      projects.map((e) => ProjectCardWeb(project: e)).toList(),
+                ),
               )
             ],
           ),

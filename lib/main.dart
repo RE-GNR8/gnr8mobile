@@ -1,13 +1,18 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:gnr8/firebase_options.dart';
 import 'package:gnr8/mobpages/pages.dart';
 import 'package:gnr8/utils/utils.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:gnr8/webpages/webpages.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 

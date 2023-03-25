@@ -35,9 +35,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         actions: [],
         title: SizedBox(
-            height: 30, child: Image.asset("assets/images/logoFlat.png")),
+          height: 30,
+          child: Image.asset("assets/images/logoFlat.png"),
+        ),
       ),
       body: pages[_bottomNavIndex],
       bottomNavigationBar: AnimatedBottomNavigationBar(

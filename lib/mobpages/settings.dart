@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SettingsPage extends StatefulWidget {
   SettingsPage({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class _SettingsPageState extends State<SettingsPage> {
       child: ListView(
         children: [
           Text(
-            "Wallet",
+            "Settings",
             style: theme.labelMedium,
           ),
           SizedBox(
@@ -27,7 +28,21 @@ class _SettingsPageState extends State<SettingsPage> {
           Card(
             child: ListTile(
               onTap: () async {},
-              leading: Icon(Icons.exit_to_app),
+              leading: Icon(FontAwesomeIcons.userLarge),
+              title: Text("Profile"),
+            ),
+          ),
+          Card(
+            child: ListTile(
+              onTap: () async {},
+              leading: Icon(FontAwesomeIcons.wallet),
+              title: Text("Connect Wallet"),
+            ),
+          ),
+          Card(
+            child: ListTile(
+              onTap: () async {},
+              leading: Icon(FontAwesomeIcons.rightFromBracket),
               title: Text("Logout"),
             ),
           ),

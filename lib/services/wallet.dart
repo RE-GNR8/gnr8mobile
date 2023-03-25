@@ -21,6 +21,7 @@ class Wallet extends GetxController {
       ],
     ),
   );
+
   int operatingChain = 80001;
 
   //* Methods
