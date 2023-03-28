@@ -34,6 +34,7 @@ class _WebHomeState extends State<WebHome> {
                   height: 200,
                   child: Image.asset(
                     "assets/images/logoFlatWhite.png",
+                    filterQuality: FilterQuality.high,
                   ),
                 ),
               ),

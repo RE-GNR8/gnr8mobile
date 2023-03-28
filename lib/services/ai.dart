@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:convert';
+import 'package:gnr8/secret.dart';
 import 'package:http/http.dart' as http;
 import 'package:google_mlkit_object_detection/google_mlkit_object_detection.dart';
 
@@ -28,7 +29,7 @@ class AI {
   }
 
   // Set your OpenAI API key here
-  String apiKey = "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";
+  String apiKey = oA;
 
   // Ask a question about a PDF file
   String pdfUrl =
