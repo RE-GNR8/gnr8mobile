@@ -4,7 +4,7 @@ class Project {
   final String id;
   final Owner owner;
   final String name;
-  final String image;
+  final String logo;
   final String description;
   final List<Impact> impact;
   late final String? video;
@@ -16,7 +16,7 @@ class Project {
     required this.owner,
     required this.id,
     required this.description,
-    required this.image,
+    required this.logo,
     required this.name,
     required this.impact,
     this.video,

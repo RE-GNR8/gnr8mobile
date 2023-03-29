@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gnr8/utils/colors.dart';
+import 'package:gnr8/utils/utils.dart';
 
 import '../models/models.dart';
 
@@ -77,26 +77,98 @@ class _ProjectWebPageState extends State<ProjectWebPage>
             Container(
               height: screen.height * .7,
               decoration: BoxDecoration(
-                gradient: LinearGradient(
+                image: DecorationImage(
+                    image: AssetImage(
+                      "assets/images/backAgave.png",
+                    ),
+                    filterQuality: FilterQuality.high,
+                    alignment: Alignment.centerLeft),
+                gradient: RadialGradient(
+                  center: Alignment.topLeft,
                   colors: [Color(0xFF567600), AppColors.accent],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
+                  radius: 4,
                 ),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    widget.project.name,
-                    style: theme.headlineMedium,
+                  Container(
+                    padding: EdgeInsets.all(30),
+                    child: Row(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: Image.asset(
+                            "assets/images/logoWhiteSmall.png",
+                            filterQuality: FilterQuality.high,
+                          ),
+                        ),
+                        Spacer(),
+                        Text(
+                          widget.project.name,
+                          style: theme.headlineMedium,
+                        ),
+                        Spacer(),
+                      ],
+                    ),
+                    height: 150,
                   ),
-                  SizedBox(
-                    height: 20,
+                  Spacer(),
+                  Wrap(
+                    alignment: WrapAlignment.center,
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    spacing: 350,
+                    children: [
+                      Column(
+                        children: [
+                          Text(
+                            "Membership Cost: \$250 USD",
+                            style: Styles.projectCost,
+                          ),
+                          Text(
+                            "Goal: \$500,000 USD",
+                            style: Styles.projectGoal,
+                          )
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Image.network(
+                            widget.project.logo,
+                            filterQuality: FilterQuality.high,
+                          ),
+                          SizedBox(
+                            height: 50,
+                          ),
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 75,
+                                  vertical: 20,
+                                ),
+                                backgroundColor: AppColors.complementary,
+                                shape: StadiumBorder()),
+                            onPressed: () {},
+                            child: Text(
+                              "Support",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 40,
+                                letterSpacing: 1.2,
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 50,
+                          ),
+                        ],
+                      )
+                    ],
                   ),
-                  Text(
-                    widget.project.description,
-                    style: theme.bodyLarge,
-                  ),
+                  Spacer(),
                 ],
               ),
             ),

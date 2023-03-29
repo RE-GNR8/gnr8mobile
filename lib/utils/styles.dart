@@ -4,6 +4,19 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 class Styles {
+  static TextStyle projectCost = TextStyle(
+    color: Colors.black,
+    fontSize: 50,
+    fontWeight: FontWeight.bold,
+    letterSpacing: .9,
+  );
+  static TextStyle projectGoal = TextStyle(
+    color: Colors.white,
+    fontSize: 75,
+    fontWeight: FontWeight.w900,
+    letterSpacing: .9,
+  );
+
   static TextStyle cardTitle = GoogleFonts.michroma()
       .copyWith(color: AppColors.primary, fontWeight: FontWeight.w900);
   static final alert = AlertStyle(

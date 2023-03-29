@@ -104,7 +104,7 @@ class _ProjectPageState extends State<ProjectPage>
                 height: screen.height * .25,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: NetworkImage(widget.project.image),
+                      image: NetworkImage(widget.project.logo),
                       fit: BoxFit.cover),
                 ),
                 child: Align(

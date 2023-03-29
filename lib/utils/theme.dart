@@ -24,9 +24,7 @@ ThemeData gnr8theme = ThemeData(
     bodySmall: TextStyle(
       color: Colors.white,
     ),
-    bodyMedium: TextStyle(
-      color: Colors.white,
-    ),
+    bodyMedium: TextStyle(color: Colors.white, fontWeight: FontWeight.w900),
     bodyLarge: TextStyle(color: Colors.white, fontSize: 18),
     headlineSmall: TextStyle(
       color: Colors.white,
