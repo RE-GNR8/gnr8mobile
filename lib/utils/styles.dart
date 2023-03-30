@@ -17,6 +17,18 @@ class Styles {
     letterSpacing: .9,
   );
 
+  static TextStyle projectMetric = TextStyle(
+    color: Colors.white,
+    fontSize: 50,
+    fontWeight: FontWeight.w900,
+    letterSpacing: .5,
+  );
+
+  static TextStyle metricLabel = TextStyle(
+    fontSize: 18,
+    height: .5,
+    fontWeight: FontWeight.w900,
+  );
   static TextStyle cardTitle = GoogleFonts.michroma()
       .copyWith(color: AppColors.primary, fontWeight: FontWeight.w900);
   static final alert = AlertStyle(
