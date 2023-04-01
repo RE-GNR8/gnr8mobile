@@ -11,7 +11,7 @@ class ImpactIndicator extends StatelessWidget {
     required this.impact,
   });
 
-  final Impact impact;
+  final AgaveEcosystemService impact;
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +25,10 @@ class ImpactIndicator extends StatelessWidget {
         ),
         height: 50,
         width: 50,
-        child: Icon(
-          impact.icon,
+        child: ImageIcon(
+          AssetImage(impact.icon),
           color: AppColors.black,
-          size: 30,
+          size: 45,
         ),
       ),
     );

@@ -1,26 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:gnr8/models/models.dart';
+import 'package:google_maps/google_maps.dart';
 
 class Project {
   final String id;
-  final Owner owner;
+  final Regen owner;
   final String name;
   final String logo;
   final String description;
-  final List<Impact> impact;
+  final DateTime startDate;
+  final LatLng latlng;
+  final String location;
+  final double extension;
+  final List<AgaveEcosystemService> impact;
+
   late final String? video;
-  late final Hypercert? hypercert;
+  late final List<String>? gallery;
+  late final ESCert? escert;
   late final List<BaseDocument>? documents;
   late final List<Benefit>? benefits;
 
   Project({
+    required this.location,
+    required this.latlng,
+    required this.extension,
     required this.owner,
+    required this.startDate,
     required this.id,
     required this.description,
     required this.logo,
     required this.name,
     required this.impact,
+    this.gallery,
     this.video,
-    this.hypercert,
+    this.escert,
     this.benefits,
     required this.documents,
   });
@@ -39,14 +52,18 @@ class Benefit {
   });
 }
 
-class Impact {
-  final String name;
-  final String description;
-  final IconData icon;
-  Impact({required this.description, required this.name, required this.icon});
+class Regen {
+  late String? name;
+  late String? address;
+  late String? blurb;
+  late String? avatar;
+  Regen({
+    this.address,
+    this.name,
+    this.avatar,
+    this.blurb,
+  });
 }
-
-class Owner {}
 
 class BaseDocument {
   final String name;
@@ -61,8 +78,8 @@ class BaseDocument {
   });
 }
 
-class Hypercert {
-  Hypercert({
+class ESCert {
+  ESCert({
     required this.workScope,
     required this.impactScope,
     required this.workTimeframe,
@@ -77,7 +94,7 @@ class Hypercert {
   late final Contributors contributors;
   late final Rights rights;
 
-  Hypercert.fromJson(Map<String, dynamic> json) {
+  ESCert.fromJson(Map<String, dynamic> json) {
     workScope = WorkScope.fromJson(json['work_scope']);
     impactScope = ImpactScope.fromJson(json['impact_scope']);
     workTimeframe = WorkTimeframe.fromJson(json['work_timeframe']);

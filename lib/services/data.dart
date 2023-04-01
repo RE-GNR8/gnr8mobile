@@ -3,8 +3,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../models/models.dart';
 
 List<Project> projects = [
-  Project(
-    owner: new Owner(),
+  /* Project(
+    startDate: DateTime.now(),
+    owner: new Regen(),
     id: "01",
     description:
         "The Billion Agave Project is a game-changing ecosystem-regeneration strategy recently adopted by several innovative Mexican farms in the high-desert region of Guanajuato.",
@@ -82,7 +83,8 @@ List<Project> projects = [
     ],
   ),
   Project(
-    owner: new Owner(),
+    startDate: DateTime.now(),
+    owner: new Regen(),
     id: "02",
     description:
         "The Grand River Hemp Club is an innovative natural products company and land remediation guild, that deploys the amazing power of hemp to bring back life to distressed ecosystems..",
@@ -158,7 +160,8 @@ List<Project> projects = [
     ],
   ),
   Project(
-    owner: new Owner(),
+    startDate: DateTime.now(),
+    owner: new Regen(),
     id: "03",
     description:
         "Tequila ReGeneraciones is a fine spirit's club that aims to create the best tequila in the world, by promoting permacultural agave farms.",
@@ -232,5 +235,5 @@ List<Project> projects = [
         name: "Gift Basket!",
       ),
     ],
-  ),
+  ), */
 ];
