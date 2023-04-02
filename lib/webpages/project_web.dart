@@ -118,7 +118,7 @@ class _ProjectWebPageState extends State<ProjectWebPage>
                           ),
                           widget.project.video != null
                               ? VideoWidget(uri: "${widget.project.video}")
-                              : Image.network(widget.project.logo),
+                              : Image.network(widget.project.image),
                         ],
                       )),
                   Container(
@@ -305,7 +305,7 @@ class _ProjectWebPageState extends State<ProjectWebPage>
         Column(
           children: [
             Image.network(
-              widget.project.logo,
+              widget.project.image,
               filterQuality: FilterQuality.high,
             ),
             SizedBox(

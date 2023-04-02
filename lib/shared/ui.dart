@@ -11,7 +11,7 @@ class ImpactIndicator extends StatelessWidget {
     required this.impact,
   });
 
-  final AgaveEcosystemService impact;
+  final EcosystemService impact;
 
   @override
   Widget build(BuildContext context) {

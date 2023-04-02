@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:gnr8/models/models.dart';
-import 'package:google_maps/google_maps.dart';
 
 class Project {
   final String id;
   final Regen owner;
   final String name;
+  final String image;
   final String logo;
   final String description;
   final DateTime startDate;
-  final LatLng latlng;
+  //final LatLng latlng;
   final String location;
   final double extension;
-  final List<AgaveEcosystemService> impact;
-
+  final List<EcosystemService> impact;
+  final List<SDG> sdgs;
   late final String? video;
   late final List<String>? gallery;
   late final ESCert? escert;
@@ -21,16 +21,18 @@ class Project {
   late final List<Benefit>? benefits;
 
   Project({
+    required this.logo,
     required this.location,
-    required this.latlng,
+    //required this.latlng,
     required this.extension,
     required this.owner,
     required this.startDate,
     required this.id,
     required this.description,
-    required this.logo,
+    required this.image,
     required this.name,
     required this.impact,
+    required this.sdgs,
     this.gallery,
     this.video,
     this.escert,

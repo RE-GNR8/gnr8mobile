@@ -40,7 +40,7 @@ class ProjectCard extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: NetworkImage(project.logo), fit: BoxFit.cover),
+                  image: NetworkImage(project.image), fit: BoxFit.cover),
             ),
             child: Align(
               alignment: Alignment.bottomCenter,
@@ -110,7 +110,7 @@ class ProjectCardWeb extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: NetworkImage(project.logo), fit: BoxFit.cover),
+                  image: NetworkImage(project.image), fit: BoxFit.cover),
             ),
             child: Align(
               alignment: Alignment.bottomCenter,

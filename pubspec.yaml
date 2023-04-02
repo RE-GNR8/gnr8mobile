@@ -15,7 +15,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   icons_launcher: ^2.1.0
   google_fonts: ^4.0.3
-  google_maps: ^6.2.0
+  google_maps_flutter: ^2.2.5
   animated_bottom_navigation_bar: ^1.2.0
   font_awesome_flutter: ^10.4.0
   location: ^4.4.0
@@ -34,9 +34,10 @@ dependencies:
   chatview: ^1.2.1
   web3dart: ^2.5.1
   flutter_native_splash: ^2.2.19
-  firebase_core: ^2.8.0
+  firebase_core: ^2.9.0
   step_progress_indicator: ^1.0.2
   #flutter_geofire: ^2.0.3
+  
 
 dev_dependencies:
   flutter_test:
