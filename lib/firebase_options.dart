@@ -52,6 +52,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '544065708380',
     projectId: 'gnr8dapp',
     authDomain: 'gnr8dapp.firebaseapp.com',
+    databaseURL: 'https://gnr8dapp-default-rtdb.firebaseio.com',
     storageBucket: 'gnr8dapp.appspot.com',
   );
 
@@ -60,6 +61,7 @@ class DefaultFirebaseOptions {
     appId: '1:544065708380:android:0e9f2df132f95532fb2199',
     messagingSenderId: '544065708380',
     projectId: 'gnr8dapp',
+    databaseURL: 'https://gnr8dapp-default-rtdb.firebaseio.com',
     storageBucket: 'gnr8dapp.appspot.com',
   );
 
@@ -68,8 +70,10 @@ class DefaultFirebaseOptions {
     appId: '1:544065708380:ios:000d610c6dc6f3a1fb2199',
     messagingSenderId: '544065708380',
     projectId: 'gnr8dapp',
+    databaseURL: 'https://gnr8dapp-default-rtdb.firebaseio.com',
     storageBucket: 'gnr8dapp.appspot.com',
-    iosClientId: '544065708380-40ug2ql9l3guu4skn1gd64sq70l122la.apps.googleusercontent.com',
+    iosClientId:
+        '544065708380-40ug2ql9l3guu4skn1gd64sq70l122la.apps.googleusercontent.com',
     iosBundleId: 'xyz.gnr8.app',
   );
 }

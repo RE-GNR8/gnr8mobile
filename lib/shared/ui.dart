@@ -112,7 +112,7 @@ class DocTile extends StatelessWidget {
         },
         contentPadding: EdgeInsets.all(10),
         isThreeLine: true,
-        leading: Icon(document.icon),
+        leading: Icon(Icons.file_copy),
         title: Text(document.name),
         subtitle: Text(
           document.description,

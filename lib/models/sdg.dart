@@ -1,3 +1,8 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'sdg.g.dart';
+
+@JsonSerializable()
 class SDG {
   String name;
   String icon;
@@ -9,6 +14,8 @@ class SDG {
     required this.icon,
     required this.number,
   });
+  factory SDG.fromJson(Map<String, dynamic> json) => _$SDGFromJson(json);
+  Map<String, dynamic> toJson() => _$SDGToJson(this);
 }
 
 List<SDG> agaveSDGs = [

@@ -1,3 +1,8 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'envserv.g.dart';
+
+@JsonSerializable()
 class EcosystemService {
   final String description;
   final String category;
@@ -9,6 +14,9 @@ class EcosystemService {
     required this.icon,
     required this.name,
   });
+  factory EcosystemService.fromJson(Map<String, dynamic> json) =>
+      _$EcosystemServiceFromJson(json);
+  Map<String, dynamic> toJson() => _$EcosystemServiceToJson(this);
 }
 
 List<EcosystemService> agaveES = [

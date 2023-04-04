@@ -1,6 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:gnr8/models/models.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'project.g.dart';
+
+@JsonSerializable()
 class Project {
   final String id;
   final Regen owner;
@@ -8,12 +11,14 @@ class Project {
   final String image;
   final String logo;
   final String description;
-  final DateTime startDate;
-  //final LatLng latlng;
+  final double latitude;
+  final double longitude;
+  final String contract;
   final String location;
   final double extension;
-  final List<EcosystemService> impact;
-  final List<SDG> sdgs;
+  late final DateTime? startDate;
+  late final List<EcosystemService>? impact;
+  late final List<SDG>? sdgs;
   late final String? video;
   late final List<String>? gallery;
   late final ESCert? escert;
@@ -23,24 +28,31 @@ class Project {
   Project({
     required this.logo,
     required this.location,
-    //required this.latlng,
+    required this.latitude,
+    required this.longitude,
+    required this.contract,
     required this.extension,
     required this.owner,
-    required this.startDate,
     required this.id,
     required this.description,
     required this.image,
     required this.name,
-    required this.impact,
-    required this.sdgs,
+    this.startDate,
+    this.impact,
+    this.sdgs,
     this.gallery,
     this.video,
     this.escert,
     this.benefits,
     required this.documents,
   });
+
+  factory Project.fromJson(Map<String, dynamic> json) =>
+      _$ProjectFromJson(json);
+  Map<String, dynamic> toJson() => _$ProjectToJson(this);
 }
 
+@JsonSerializable()
 class Benefit {
   String name;
   String description;
@@ -52,8 +64,12 @@ class Benefit {
     required this.logo,
     required this.name,
   });
+  factory Benefit.fromJson(Map<String, dynamic> json) =>
+      _$BenefitFromJson(json);
+  Map<String, dynamic> toJson() => _$BenefitToJson(this);
 }
 
+@JsonSerializable()
 class Regen {
   late String? name;
   late String? address;
@@ -65,19 +81,24 @@ class Regen {
     this.avatar,
     this.blurb,
   });
+  factory Regen.fromJson(Map<String, dynamic> json) => _$RegenFromJson(json);
+  Map<String, dynamic> toJson() => _$RegenToJson(this);
 }
 
+@JsonSerializable()
 class BaseDocument {
   final String name;
-  final IconData icon;
+
   final String uri;
   final String description;
   BaseDocument({
     required this.name,
-    required this.icon,
     required this.uri,
     required this.description,
   });
+  factory BaseDocument.fromJson(Map<String, dynamic> json) =>
+      _$BaseDocumentFromJson(json);
+  Map<String, dynamic> toJson() => _$BaseDocumentToJson(this);
 }
 
 class ESCert {

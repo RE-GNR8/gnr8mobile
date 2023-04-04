@@ -1,6 +1,10 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:gnr8/services/projects.dart';
+
 import 'package:gnr8/shared/shared.dart';
 
+import '../models/models.dart';
 import '../services/services.dart';
 import '../utils/utils.dart';
 
@@ -12,6 +16,11 @@ class WebHome extends StatefulWidget {
 }
 
 class _WebHomeState extends State<WebHome> {
+  //* Variables and Services
+
+  DatabaseService _db = DatabaseService();
+  ProjectServices _proj = ProjectServices();
+
   @override
   Widget build(BuildContext context) {
     Size screen = MediaQuery.of(context).size;
@@ -71,63 +80,29 @@ class _WebHomeState extends State<WebHome> {
           child: ListView(
             shrinkWrap: true,
             children: [
-              /* Container(
-                padding: EdgeInsets.all(50),
-                child: Column(
-                  children: [
-                    Text(
-                      "Coming Soon!",
-                      style: theme.titleLarge,
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      height: 50,
-                    ),
-                    Text(
-                      "We are the Motley Ds a community that is commited on developing impactful projects. \n\n We are working on launching the system soon, in the meantime you can support the project by\n purchasing a D, and joining the effort to regenerate our soils, our planet and our sanity.",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        height: 1.5,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
-              ), */
-              Container(
-                padding: EdgeInsets.all(50),
-                child: Wrap(
-                  spacing: 30,
-                  runSpacing: 30,
-                  alignment: WrapAlignment.center,
-                  /* children: [
-                      SizedBox(
-                        width: 400,
-                        child: InkWell(
-                          onTap: () {
-                            Tools.launchWeb(
-                                "https://5a6e8j7axnh.typeform.com/to/hDcTHlrK");
-                          },
-                          child: Image.asset("assets/images/registerEmail.png"),
+              FutureBuilder<DatabaseEvent>(
+                  future: _db.getProjects(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      List<Project> _projects =
+                          _proj.getProjects(snapshot.data!.snapshot.value);
+                      return Container(
+                        padding: EdgeInsets.all(50),
+                        child: Wrap(
+                          spacing: 30,
+                          runSpacing: 30,
+                          alignment: WrapAlignment.center,
+                          children: _projects
+                              .map((e) => ProjectCardWeb(project: e))
+                              .toList(),
                         ),
-                      ),
-                      SizedBox(
-                        width: 400,
-                        child: InkWell(
-                          onTap: () {
-                            Tools.launchWeb("https://motleyds.com/#/");
-                          },
-                          child: Image.asset("assets/images/mdweb.png"),
-                        ),
-                      ),
-                    ] */
-
-                  children:
-                      projects.map((e) => ProjectCardWeb(project: e)).toList(),
-                ),
-              )
+                      );
+                    } else {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                  })
             ],
           ),
         ),
@@ -135,3 +110,25 @@ class _WebHomeState extends State<WebHome> {
     );
   }
 }
+
+/* children: [
+                          SizedBox(
+                            width: 400,
+                            child: InkWell(
+                              onTap: () {
+                                Tools.launchWeb(
+                                    "https://5a6e8j7axnh.typeform.com/to/hDcTHlrK");
+                              },
+                              child: Image.asset("assets/images/registerEmail.png"),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 400,
+                            child: InkWell(
+                              onTap: () {
+                                Tools.launchWeb("https://motleyds.com/#/");
+                              },
+                              child: Image.asset("assets/images/mdweb.png"),
+                            ),
+                          ),
+                        ] */
