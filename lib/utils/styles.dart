@@ -4,12 +4,15 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 class Styles {
+  //* Text Styling
+
   static TextStyle projectCost = TextStyle(
     color: Colors.black,
     fontSize: 50,
     fontWeight: FontWeight.bold,
-    letterSpacing: .9,
+    letterSpacing: .5,
   );
+
   static TextStyle projectGoal = TextStyle(
     color: Colors.white,
     fontSize: 75,
@@ -48,8 +51,12 @@ class Styles {
     height: 1.2,
     fontWeight: FontWeight.w900,
   );
-  static TextStyle cardTitle = GoogleFonts.michroma()
-      .copyWith(color: AppColors.primary, fontWeight: FontWeight.w900);
+  static TextStyle cardTitle = GoogleFonts.michroma().copyWith(
+    color: AppColors.primary,
+    fontWeight: FontWeight.w900,
+  );
+
+  //* Components Styling
   static final alert = AlertStyle(
     isCloseButton: true,
     backgroundColor: AppColors.back,

@@ -81,94 +81,188 @@ class _ProjectWebPageState extends State<ProjectWebPage>
         child: ListView(
           children: [
             _buildHero(screen, context, theme),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                      margin: EdgeInsets.all(20),
-                      width: screen.width * .55,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 50,
-                          ),
-                          Text(
-                            widget.project.name,
-                            style: Styles.projectCost,
-                          ),
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.pin_drop,
-                                color: AppColors.grey,
-                              ),
-                              Text(
-                                widget.project.location,
-                                style: TextStyle(
-                                  color: AppColors.grey,
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            "Summary",
-                            style: Styles.bodyTitleWeb,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: Text(
-                              widget.project.description,
-                              style: Styles.bodyWeb,
-                            ),
-                          ),
-                          widget.project.video != null
-                              ? VideoWidget(uri: "${widget.project.video}")
-                              : Image.network(widget.project.image),
-                        ],
-                      )),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: AppColors.grey,
-                    ),
-                    margin: EdgeInsets.all(50),
-                    width: screen.width * .20,
-                    padding: EdgeInsets.all(33),
-                    child: Column(
-                      children: [
-                        TabBar(
-                          indicatorColor: AppColors.primary,
-                          tabs: _tabs,
-                          controller: _controller,
-                          onTap: (int index) {
-                            setState(() {
-                              _index = index;
-                              _controller.animateTo(index);
-                            });
-                          },
-                        ),
-                        SizedBox(
-                          height: 500,
-                          child: IndexedStack(
-                            alignment: Alignment.topCenter,
-                            children: _views,
-                            index: _index,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            _buildBody(screen),
           ],
         ),
+      ),
+    );
+  }
+
+  Container _buildBody(Size screen) {
+    return Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+              margin: EdgeInsets.all(20),
+              width: screen.width * .55,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Text(
+                    widget.project.name,
+                    style: Styles.projectCost,
+                  ),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.pin_drop,
+                        color: AppColors.grey,
+                      ),
+                      Text(
+                        widget.project.location,
+                        style: TextStyle(
+                          color: AppColors.grey,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 15,
+                      ),
+                      Icon(
+                        Icons.open_with,
+                        color: AppColors.grey,
+                      ),
+                      Text(
+                        "${widget.project.extension} Has.",
+                        style: TextStyle(
+                          color: AppColors.grey,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  widget.project.video != null
+                      ? VideoWidget(uri: "${widget.project.video}")
+                      : Image.network(widget.project.image),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Text(
+                    "Summary",
+                    style: Styles.bodyTitleWeb,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Text(
+                      widget.project.description,
+                      style: Styles.bodyWeb,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Text(
+                    "Environmental Services",
+                    style: Styles.bodyTitleWeb,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  _buildESs(),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Text(
+                    "Sustainable Development Goals",
+                    style: Styles.bodyTitleWeb,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  _buildSDGs(),
+                  SizedBox(
+                    height: 50,
+                  ),
+                ],
+              )),
+          _buildDetailsBox(screen),
+        ],
+      ),
+    );
+  }
+
+  Wrap _buildSDGs() {
+    return Wrap(
+      spacing: 10,
+      runSpacing: 10,
+      children: widget.project.sdgs!.map((e) {
+        return Tooltip(
+          message: e.name,
+          child: Container(
+            width: 100,
+            height: 100,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              image: DecorationImage(
+                  image: AssetImage(e.icon), filterQuality: FilterQuality.high),
+            ),
+          ),
+          preferBelow: false,
+          verticalOffset: 12,
+        );
+      }).toList(),
+    );
+  }
+
+  Wrap _buildESs() {
+    return Wrap(
+      spacing: 10,
+      runSpacing: 10,
+      children: widget.project.impact!.map((e) {
+        return Tooltip(
+          message: e.name,
+          child: Container(
+            width: 100,
+            height: 100,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(e.icon), filterQuality: FilterQuality.high),
+            ),
+          ),
+          preferBelow: false,
+          verticalOffset: 12,
+        );
+      }).toList(),
+    );
+  }
+
+  Container _buildDetailsBox(Size screen) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: AppColors.grey,
+      ),
+      margin: EdgeInsets.all(50),
+      width: screen.width * .20,
+      padding: EdgeInsets.all(33),
+      child: Column(
+        children: [
+          TabBar(
+            indicatorColor: AppColors.primary,
+            tabs: _tabs,
+            controller: _controller,
+            onTap: (int index) {
+              setState(() {
+                _index = index;
+                _controller.animateTo(index);
+              });
+            },
+          ),
+          SizedBox(
+            height: 500,
+            child: IndexedStack(
+              alignment: Alignment.topCenter,
+              children: _views,
+              index: _index,
+            ),
+          )
+        ],
       ),
     );
   }
@@ -185,12 +279,13 @@ class _ProjectWebPageState extends State<ProjectWebPage>
               offset: Offset.fromDirection(1))
         ],
         image: DecorationImage(
-            image: AssetImage(
-              "assets/images/backAgave.png",
-            ),
-            filterQuality: FilterQuality.high,
-            alignment: Alignment.centerLeft,
-            opacity: .5),
+          image: AssetImage(
+            "assets/images/backAgave.png",
+          ),
+          filterQuality: FilterQuality.high,
+          alignment: Alignment.centerLeft,
+          opacity: .5,
+        ),
         gradient: RadialGradient(
           center: Alignment.topLeft,
           colors: [Color(0xFF567600), AppColors.accent],
@@ -217,7 +312,7 @@ class _ProjectWebPageState extends State<ProjectWebPage>
     return Wrap(
       alignment: WrapAlignment.center,
       crossAxisAlignment: WrapCrossAlignment.center,
-      spacing: screen.width * .20,
+      spacing: screen.width * .10,
       children: [
         Column(
           children: [
