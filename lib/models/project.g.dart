@@ -7,17 +7,22 @@ part of 'project.dart';
 // **************************************************************************
 
 Project _$ProjectFromJson(Map<String, dynamic> json) => Project(
+      membershipCost: (json['cost'] as num).toDouble(),
+      goal: (json['goal'] as num).toDouble(),
       logo: json['logo'] as String,
       location: json['location'] as String,
       latitude: (json['latitude'] as num).toDouble(),
       longitude: (json['longitude'] as num).toDouble(),
       contract: json['contract'] as String,
       extension: (json['extension'] as num).toDouble(),
-      owner: Regen.fromJson(json['owner'] as Map<String, dynamic>),
+      owner: json['owner'] == null
+          ? null
+          : Regen.fromJson(json['owner'] as Map<String, dynamic>),
       id: json['id'] as String,
       description: json['description'] as String,
       image: json['image'] as String,
       name: json['name'] as String,
+      raised: (json['raised'] as num?)?.toDouble(),
       startDate: json['startDate'] == null
           ? null
           : DateTime.parse(json['startDate'] as String),
@@ -53,6 +58,9 @@ Map<String, dynamic> _$ProjectToJson(Project instance) => <String, dynamic>{
       'contract': instance.contract,
       'location': instance.location,
       'extension': instance.extension,
+      'goal': instance.goal,
+      'cost': instance.membershipCost,
+      'raised': instance.raised,
       'startDate': instance.startDate?.toIso8601String(),
       'impact': instance.impact,
       'sdgs': instance.sdgs,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:gnr8/utils/utils.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -46,6 +47,24 @@ class Tools {
         )
       ],
     ).show();
+  }
+
+  static int calculatePercentage(double fundsRaised, double totalCost) {
+    if (totalCost == 0) {
+      throw ArgumentError("Total cost cannot be zero.");
+    }
+
+    int percentage = ((fundsRaised / totalCost) * 100).floor();
+    return percentage;
+  }
+
+  static String formatAsUSD(double amount) {
+    final currencyFormatter = NumberFormat.currency(
+      symbol: '\$', // USD symbol
+      decimalDigits: 0, // Display 2 decimal places
+      locale: 'en_US', // Use the US locale for formatting
+    );
+    return currencyFormatter.format(amount);
   }
 
   static showAlertInfo(

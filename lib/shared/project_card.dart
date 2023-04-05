@@ -85,7 +85,7 @@ class ProjectCardWeb extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 250,
-      width: 350,
+      width: 400,
       child: Card(
         elevation: 10,
         shape: RoundedRectangleBorder(
@@ -117,20 +117,22 @@ class ProjectCardWeb extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.all(10),
                 color: Colors.black54,
-                height: 150,
+                height: 100,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       project.name,
-                      style: Styles.cardTitle,
+                      style: Styles.webCardTitle,
                     ),
                     SizedBox(
-                      height: 20,
+                      height: 10,
                     ),
                     Text(
                       project.description,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ],

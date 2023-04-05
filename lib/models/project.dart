@@ -6,7 +6,7 @@ part 'project.g.dart';
 @JsonSerializable()
 class Project {
   final String id;
-  final Regen owner;
+  late final Regen? owner;
   final String name;
   final String image;
   final String logo;
@@ -16,6 +16,9 @@ class Project {
   final String contract;
   final String location;
   final double extension;
+  final double goal;
+  final double membershipCost;
+  late final double? raised;
   late final DateTime? startDate;
   late final List<EcosystemService>? impact;
   late final List<SDG>? sdgs;
@@ -26,17 +29,20 @@ class Project {
   late final List<Benefit>? benefits;
 
   Project({
+    required this.membershipCost,
+    required this.goal,
     required this.logo,
     required this.location,
     required this.latitude,
     required this.longitude,
     required this.contract,
     required this.extension,
-    required this.owner,
+    this.owner,
     required this.id,
     required this.description,
     required this.image,
     required this.name,
+    this.raised,
     this.startDate,
     this.impact,
     this.sdgs,
@@ -49,6 +55,7 @@ class Project {
 
   factory Project.fromJson(Map<String, dynamic> json) =>
       _$ProjectFromJson(json);
+
   Map<String, dynamic> toJson() => _$ProjectToJson(this);
 }
 

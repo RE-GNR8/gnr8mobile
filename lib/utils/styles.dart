@@ -29,6 +29,25 @@ class Styles {
     height: .5,
     fontWeight: FontWeight.w900,
   );
+  static TextStyle webCardTitle = GoogleFonts.inter().copyWith(
+    color: AppColors.white,
+    fontWeight: FontWeight.w900,
+    fontSize: 20,
+  );
+
+  static TextStyle bodyWeb = TextStyle(
+    color: AppColors.black,
+    fontSize: 20,
+    height: 1.5,
+    fontWeight: FontWeight.w200,
+  );
+
+  static TextStyle bodyTitleWeb = TextStyle(
+    color: AppColors.black,
+    fontSize: 30,
+    height: 1.2,
+    fontWeight: FontWeight.w900,
+  );
   static TextStyle cardTitle = GoogleFonts.michroma()
       .copyWith(color: AppColors.primary, fontWeight: FontWeight.w900);
   static final alert = AlertStyle(

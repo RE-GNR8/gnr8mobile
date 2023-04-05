@@ -60,6 +60,8 @@ class _ProjectWebPageState extends State<ProjectWebPage>
     super.initState();
   }
 
+  //* Methods and Functions
+
   //* Dispose
   @override
   void dispose() {
@@ -97,23 +99,32 @@ class _ProjectWebPageState extends State<ProjectWebPage>
                             widget.project.name,
                             style: Styles.projectCost,
                           ),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.pin_drop,
+                                color: AppColors.grey,
+                              ),
+                              Text(
+                                widget.project.location,
+                                style: TextStyle(
+                                  color: AppColors.grey,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
                           Text(
                             "Summary",
-                            style: TextStyle(
-                              color: AppColors.black,
-                              fontSize: 30,
-                              fontWeight: FontWeight.w900,
-                            ),
+                            style: Styles.bodyTitleWeb,
                           ),
                           Padding(
                             padding: const EdgeInsets.all(20.0),
                             child: Text(
                               widget.project.description,
-                              style: TextStyle(
-                                color: AppColors.black,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w200,
-                              ),
+                              style: Styles.bodyWeb,
                             ),
                           ),
                           widget.project.video != null
@@ -211,11 +222,11 @@ class _ProjectWebPageState extends State<ProjectWebPage>
         Column(
           children: [
             Text(
-              "Membership Cost: \$250 USD",
+              "Membership Cost: ${Tools.formatAsUSD(widget.project.membershipCost)}",
               style: Styles.projectCost,
             ),
             Text(
-              "Goal: \$500,000 USD",
+              "Goal: ${Tools.formatAsUSD(widget.project.goal)}",
               style: Styles.projectGoal,
             ),
             SizedBox(
@@ -225,7 +236,8 @@ class _ProjectWebPageState extends State<ProjectWebPage>
               width: 650,
               child: StepProgressIndicator(
                 totalSteps: 100,
-                currentStep: 25,
+                currentStep: Tools.calculatePercentage(
+                    widget.project.raised!, widget.project.goal),
                 size: 15,
                 padding: 0,
                 selectedColor: AppColors.primary,
@@ -237,7 +249,7 @@ class _ProjectWebPageState extends State<ProjectWebPage>
               height: 20,
             ),
             Text(
-              "Raised: \$25,000",
+              "Raised: ${Tools.formatAsUSD(widget.project.raised!)}",
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 25,
@@ -263,7 +275,7 @@ class _ProjectWebPageState extends State<ProjectWebPage>
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "10",
+                        widget.project.sdgs!.length.toString(),
                         style: Styles.projectMetric,
                       ),
                       Text(
@@ -287,7 +299,7 @@ class _ProjectWebPageState extends State<ProjectWebPage>
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "6",
+                        widget.project.impact!.length.toString(),
                         style: Styles.projectMetric,
                       ),
                       Text(
@@ -304,9 +316,12 @@ class _ProjectWebPageState extends State<ProjectWebPage>
         ),
         Column(
           children: [
-            Image.network(
-              widget.project.image,
-              filterQuality: FilterQuality.high,
+            SizedBox(
+              width: 350,
+              child: Image.network(
+                widget.project.logo,
+                filterQuality: FilterQuality.high,
+              ),
             ),
             SizedBox(
               height: 50,

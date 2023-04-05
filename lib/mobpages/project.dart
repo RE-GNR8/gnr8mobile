@@ -160,9 +160,9 @@ class _ProjectPageState extends State<ProjectPage>
             SizedBox(
               height: 10,
             ),
-            ...widget.project.benefits!
+            /*  ...widget.project.benefits!
                 .map((e) => BenefitTile(benefit: e))
-                .toList(),
+                .toList(), */
             SizedBox(
               height: 10,
             ),
@@ -214,7 +214,7 @@ class _ProjectPageState extends State<ProjectPage>
           SizedBox(
             height: 10,
           ),
-          ...widget.project.documents!.map((e) => DocTile(document: e)).toList()
+          //...widget.project.documents!.map((e) => DocTile(document: e)).toList()
         ],
       ),
     );
@@ -226,7 +226,7 @@ class _ProjectPageState extends State<ProjectPage>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          widget.project.video != null
+          /* widget.project.video != null
               ? Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -240,7 +240,7 @@ class _ProjectPageState extends State<ProjectPage>
                     VideoWidget(uri: "${widget.project.video}")
                   ],
                 )
-              : SizedBox(),
+              : SizedBox(), */
           Text(
             "Support the project!",
             style: theme.labelMedium,
@@ -267,10 +267,10 @@ class _ProjectPageState extends State<ProjectPage>
             height: 10,
           ),
           Row(
-            children: widget.project.impact
+              /*  children: widget.project.impact
                 .map((e) => ImpactIndicator(impact: e))
-                .toList(),
-          ),
+                .toList(), */
+              ),
           SizedBox(
             height: 20,
           ),
