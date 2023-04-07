@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:convert';
+import 'package:gnr8/models/models.dart';
 import 'package:gnr8/secret.dart';
 import 'package:http/http.dart' as http;
 import 'package:google_mlkit_object_detection/google_mlkit_object_detection.dart';
@@ -29,46 +30,50 @@ class AI {
   }
 
   // Set your OpenAI API key here
-  String apiKey = oA;
+  String _apiKey = oA;
 
-  // Ask a question about a PDF file
-  String pdfUrl =
-      "https://firebasestorage.googleapis.com/v0/b/gnr8dapp.appspot.com/o/impactSMA.pdf?alt=media&token=ec8d7e7c-6848-4708-a3f3-1e756dcd3952";
-  String pdfQuestion = "What is the impact of SMA?";
+  // Extract Text
+  /* Future<Map<String,dynamic>> handleExtractText(BaseDocument document) async {
+    // Extract the type of file or URL from the request body.
+    // For example, assume the body contains a JSON object like { "type": "pdf", "data": "base64_encoded_data" }.
+    String extractedText;
 
-  // Ask a question about a web page
-  String webUrl =
-      "https://regenerationinternational.org/2022/04/05/agave-power-greening-the-desert/";
+    if (document.type == 'pdf') {
+      extractedText = await extractTextFromPdf(fileData);
+    } else if (document.type == 'word') {
+      extractedText = await extractTextFromWord(fileData);
+    } else if (document.type == 'webpage') {
+      extractedText = await extractTextFromWebpage(fileData);
 
-  Future<String> askQuestion(String apiKey, String url, String question) async {
-    print(question);
-    String apiUrl = "https://api.openai.com/v1/questions";
+    return{'text': extractedText};
+  } */
 
-    // Set up the request headers and body
-    Map<String, String> headers = {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer $apiKey",
+  Future<Map<String, dynamic>> askOpenAI(String prompt) async {
+    final apiKey = _apiKey;
+    final url = 'https://api.openai.com/v1/engines/davinci-codex/completions';
+    final headers = {
+      'Authorization': 'Bearer $apiKey',
+      'Content-Type': 'application/json'
     };
+    final body = jsonEncode({
+      'prompt': prompt,
+      'max_tokens': 100,
+      'n': 1,
+      'stop': null,
+      'temperature': 0.5,
+    });
 
-    Map<String, dynamic> body = {
-      "documents": [url],
-      "question": question,
-      "model": "davinci",
-      "examples_context": "In $url,",
-      "examples": [
-        ["$question", ""]
-      ]
-    };
+    final response = await http.post(
+      Uri.parse(url),
+      headers: headers,
+      body: body,
+    );
 
-    // Send the request to the API
-    http.Response response = await http.post(Uri.parse(apiUrl),
-        headers: headers, body: jsonEncode(body));
-
-    // Parse the response and return the answer
-    Map<String, dynamic> jsonResponse = jsonDecode(response.body);
-    print(jsonResponse);
-    String answer = jsonResponse["answers"][0]["answer"];
-
-    return answer;
+    if (response.statusCode == 200) {
+      final jsonResponse = jsonDecode(response.body);
+      return jsonResponse['choices'][0]['text'];
+    } else {
+      throw Exception('Failed to ask OpenAI');
+    }
   }
 }

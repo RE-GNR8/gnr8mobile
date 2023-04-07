@@ -22,35 +22,6 @@ class _ProjectWebPageState extends State<ProjectWebPage>
 
   late TabController _controller;
   int _index = 0;
-  static const List<Tab> _tabs = [
-    const Tab(
-      child: Text("AMA"),
-    ),
-    const Tab(
-      child: Text("Technical"),
-    ),
-    const Tab(
-      child: Text("Members"),
-    ),
-  ];
-
-  List<Widget> _views = [
-    Visibility(
-      child: Center(
-        child: Text("Chat GPT Bot"),
-      ),
-    ),
-    Visibility(
-      child: Center(
-        child: Text("Technical Data Links"),
-      ),
-    ),
-    Visibility(
-      child: Center(
-        child: Text("Member Section / Aragon"),
-      ),
-    ),
-  ];
 
   //* Code that runs once
   @override
@@ -181,7 +152,18 @@ class _ProjectWebPageState extends State<ProjectWebPage>
                   ),
                 ],
               )),
-          _buildDetailsBox(screen),
+          Column(
+            children: [
+              SizedBox(
+                height: 100,
+              ),
+              _buildDetailsBox(screen),
+              SizedBox(
+                height: 100,
+              ),
+              _buildSupportButton(),
+            ],
+          ),
         ],
       ),
     );
@@ -236,7 +218,7 @@ class _ProjectWebPageState extends State<ProjectWebPage>
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: AppColors.grey,
+        color: AppColors.back,
       ),
       margin: EdgeInsets.all(50),
       width: screen.width * .20,
@@ -245,7 +227,7 @@ class _ProjectWebPageState extends State<ProjectWebPage>
         children: [
           TabBar(
             indicatorColor: AppColors.primary,
-            tabs: _tabs,
+            tabs: _buildTabs(),
             controller: _controller,
             onTap: (int index) {
               setState(() {
@@ -258,7 +240,7 @@ class _ProjectWebPageState extends State<ProjectWebPage>
             height: 500,
             child: IndexedStack(
               alignment: Alignment.topCenter,
-              children: _views,
+              children: _buildViews(),
               index: _index,
             ),
           )
@@ -421,31 +403,35 @@ class _ProjectWebPageState extends State<ProjectWebPage>
             SizedBox(
               height: 50,
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 75,
-                    vertical: 20,
-                  ),
-                  backgroundColor: AppColors.complementary,
-                  shape: StadiumBorder()),
-              onPressed: () {},
-              child: Text(
-                "Support",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 40,
-                  letterSpacing: 1.2,
-                  fontWeight: FontWeight.w900,
-                ),
-              ),
-            ),
+            _buildSupportButton(),
             SizedBox(
               height: 50,
             ),
           ],
         )
       ],
+    );
+  }
+
+  ElevatedButton _buildSupportButton() {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+          padding: EdgeInsets.symmetric(
+            horizontal: 75,
+            vertical: 20,
+          ),
+          backgroundColor: AppColors.complementary,
+          shape: StadiumBorder()),
+      onPressed: () {},
+      child: Text(
+        "Support",
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 40,
+          letterSpacing: 1.2,
+          fontWeight: FontWeight.w900,
+        ),
+      ),
     );
   }
 
@@ -463,5 +449,73 @@ class _ProjectWebPageState extends State<ProjectWebPage>
         ),
       ],
     );
+  }
+
+  List<Tab> _buildTabs() {
+    return [
+      const Tab(
+        child: Text("AMA"),
+      ),
+      Tab(
+        child: Text("Technical"),
+      ),
+      const Tab(
+        child: Text("Members"),
+      ),
+    ];
+  }
+
+  List<Widget> _buildViews() {
+    TextTheme theme = Theme.of(context).textTheme;
+    return [
+      Visibility(child: ChatWidget()),
+      Visibility(
+        child: ListView(
+          children: [
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "Base Documents",
+              style: theme.labelMedium,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            ...widget.project.documents!
+                .map((e) => DocTile(document: e))
+                .toList()
+          ],
+        ),
+      ),
+      Visibility(
+          child: ListView(
+        children: [
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            "Benefits",
+            style: theme.labelMedium,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          ...widget.project.benefits!
+              .map((e) => BenefitTile(benefit: e))
+              .toList(),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            "Members",
+            style: theme.labelMedium,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+        ],
+      )),
+    ];
   }
 }

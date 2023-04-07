@@ -95,10 +95,11 @@ class Regen {
 @JsonSerializable()
 class BaseDocument {
   final String name;
-
+  final String type;
   final String uri;
   final String description;
   BaseDocument({
+    required this.type,
     required this.name,
     required this.uri,
     required this.description,

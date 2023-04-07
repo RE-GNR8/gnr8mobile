@@ -26,18 +26,21 @@ List<Project> projects = [
       impact: agaveES,
       documents: [
         BaseDocument(
+            type: "pdf",
             name: "Environmental Risk Analisis",
             uri:
                 "https://firebasestorage.googleapis.com/v0/b/gnr8dapp.appspot.com/o/impactSMA.pdf?alt=media&token=ec8d7e7c-6848-4708-a3f3-1e756dcd3952",
             description:
                 "Executed by the GIZ and it establishes the Anual Average Loss, in the tourism sector."),
         BaseDocument(
+            type: "webpage",
             name: "Methodology Overview",
             uri:
                 "https://regenerationinternational.org/2022/04/05/agave-power-greening-the-desert/",
             description:
                 "A detailed run down of the economic, environmental and social benefit of the project"),
         BaseDocument(
+            type: "word",
             name: "Methodology Handbook",
             uri:
                 "https://regenerationinternational.org/wp-content/uploads/Handbook-Planning-Implementation-and-Organic-Management-of-Agave.docx",
@@ -90,18 +93,21 @@ List<Project> projects = [
     impact: agaveES,
     documents: [
       BaseDocument(
+          type: "pdf",
           name: "Environmental Risk Analisis",
           uri:
               "https://firebasestorage.googleapis.com/v0/b/gnr8dapp.appspot.com/o/impactSMA.pdf?alt=media&token=ec8d7e7c-6848-4708-a3f3-1e756dcd3952",
           description:
               "Executed by the GIZ and it establishes the Anual Average Loss, in the tourism sector."),
       BaseDocument(
+          type: "webpage",
           name: "Methodology Overview",
           uri:
               "https://regenerationinternational.org/2022/04/05/agave-power-greening-the-desert/",
           description:
               "A detailed run down of the economic, environmental and social benefit of the project"),
       BaseDocument(
+          type: "word",
           name: "Methodology Handbook",
           uri:
               "https://regenerationinternational.org/wp-content/uploads/Handbook-Planning-Implementation-and-Organic-Management-of-Agave.docx",

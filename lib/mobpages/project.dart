@@ -160,9 +160,9 @@ class _ProjectPageState extends State<ProjectPage>
             SizedBox(
               height: 10,
             ),
-            /*  ...widget.project.benefits!
+            ...widget.project.benefits!
                 .map((e) => BenefitTile(benefit: e))
-                .toList(), */
+                .toList(),
             SizedBox(
               height: 10,
             ),
@@ -214,7 +214,7 @@ class _ProjectPageState extends State<ProjectPage>
           SizedBox(
             height: 10,
           ),
-          //...widget.project.documents!.map((e) => DocTile(document: e)).toList()
+          ...widget.project.documents!.map((e) => DocTile(document: e)).toList()
         ],
       ),
     );

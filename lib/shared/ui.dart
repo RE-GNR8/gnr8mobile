@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:gnr8/mobpages/chatai.dart';
 import 'package:gnr8/utils/utils.dart';
 
 import '../models/models.dart';
@@ -112,19 +110,19 @@ class DocTile extends StatelessWidget {
         },
         contentPadding: EdgeInsets.all(10),
         isThreeLine: true,
-        leading: Icon(Icons.file_copy),
+        leading: Icon(Tools.getDocType(document.type)),
         title: Text(document.name),
         subtitle: Text(
           document.description,
           style: TextStyle(fontSize: 10, fontWeight: FontWeight.w100),
         ),
-        trailing: IconButton(
-          icon: Icon(FontAwesomeIcons.comments),
+        /*  trailing: IconButton(
+          icon: Icon(Tools.getDocType(type)),
           onPressed: () {
             Navigator.push(
                 context, MaterialPageRoute(builder: ((context) => ChatGPT())));
           },
-        ),
+        ), */
       ),
     );
   }

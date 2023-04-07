@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:gnr8/utils/utils.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
@@ -21,6 +22,22 @@ class Tools {
   static launchWeb(String url) async {
     final Uri uri = Uri.parse(url);
     launchUrl(uri);
+  }
+
+  static IconData getDocType(String type) {
+    switch (type) {
+      case "pdf":
+        return FontAwesomeIcons.filePdf;
+
+      case "word":
+        return FontAwesomeIcons.fileWord;
+
+      case "webpage":
+        return FontAwesomeIcons.link;
+
+      default:
+        return FontAwesomeIcons.file;
+    }
   }
 
   static showAlertError(

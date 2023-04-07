@@ -7,7 +7,7 @@ part of 'project.dart';
 // **************************************************************************
 
 Project _$ProjectFromJson(Map<String, dynamic> json) => Project(
-      membershipCost: (json['cost'] as num).toDouble(),
+      membershipCost: (json['membershipCost'] as num).toDouble(),
       goal: (json['goal'] as num).toDouble(),
       logo: json['logo'] as String,
       location: json['location'] as String,
@@ -59,7 +59,7 @@ Map<String, dynamic> _$ProjectToJson(Project instance) => <String, dynamic>{
       'location': instance.location,
       'extension': instance.extension,
       'goal': instance.goal,
-      'cost': instance.membershipCost,
+      'membershipCost': instance.membershipCost,
       'raised': instance.raised,
       'startDate': instance.startDate?.toIso8601String(),
       'impact': instance.impact,
@@ -100,6 +100,7 @@ Map<String, dynamic> _$RegenToJson(Regen instance) => <String, dynamic>{
     };
 
 BaseDocument _$BaseDocumentFromJson(Map<String, dynamic> json) => BaseDocument(
+      type: json['type'] as String,
       name: json['name'] as String,
       uri: json['uri'] as String,
       description: json['description'] as String,
@@ -108,6 +109,7 @@ BaseDocument _$BaseDocumentFromJson(Map<String, dynamic> json) => BaseDocument(
 Map<String, dynamic> _$BaseDocumentToJson(BaseDocument instance) =>
     <String, dynamic>{
       'name': instance.name,
+      'type': instance.type,
       'uri': instance.uri,
       'description': instance.description,
     };
