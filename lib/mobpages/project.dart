@@ -260,38 +260,6 @@ class _ProjectPageState extends State<ProjectPage>
             height: 20,
           ),
           Text(
-            "Ecosystem Services",
-            style: theme.labelMedium,
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Row(
-              /*  children: widget.project.impact
-                .map((e) => ImpactIndicator(impact: e))
-                .toList(), */
-              ),
-          SizedBox(
-            height: 20,
-          ),
-          Text(
-            "Impact Work",
-            style: theme.labelMedium,
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Row(
-            children: [
-              WorkChip(title: "Funding", theme: theme, work: '\$10 MMD'),
-              WorkChip(title: "Maturity", theme: theme, work: "2 Years"),
-              WorkChip(title: "Data", theme: theme, work: "Peer2Peer"),
-            ],
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Text(
             "Description",
             style: theme.labelMedium,
           ),
@@ -311,8 +279,79 @@ class _ProjectPageState extends State<ProjectPage>
           ),
           Text(
               "By supporting this project and becoming a Member, you will receive deep discounts with affiliated businesses in San Miguel de Allende, and also have access to Via Organica's Eco-Tourism destinations."),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            "Ecosystem Services",
+            style: theme.labelMedium,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          _buildESs(),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            "Impact Work",
+            style: theme.labelMedium,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          _buildSDGs(),
+          SizedBox(
+            height: 10,
+          ),
         ],
       ),
+    );
+  }
+
+  //* Widget Builds
+  Wrap _buildESs() {
+    return Wrap(
+      spacing: 10,
+      runSpacing: 10,
+      children: widget.project.impact!.map((e) {
+        return Tooltip(
+          message: e.name,
+          child: Container(
+            width: 100,
+            height: 100,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(e.icon), filterQuality: FilterQuality.high),
+            ),
+          ),
+          preferBelow: false,
+          verticalOffset: 12,
+        );
+      }).toList(),
+    );
+  }
+
+  Wrap _buildSDGs() {
+    return Wrap(
+      spacing: 10,
+      runSpacing: 10,
+      children: widget.project.sdgs!.map((e) {
+        return Tooltip(
+          message: e.name,
+          child: Container(
+            width: 100,
+            height: 100,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              image: DecorationImage(
+                  image: AssetImage(e.icon), filterQuality: FilterQuality.high),
+            ),
+          ),
+          preferBelow: false,
+          verticalOffset: 12,
+        );
+      }).toList(),
     );
   }
 }

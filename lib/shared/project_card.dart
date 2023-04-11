@@ -62,6 +62,8 @@ class ProjectCard extends StatelessWidget {
                     Text(
                       project.description,
                       style: Theme.of(context).textTheme.bodySmall,
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ],
                 ),

@@ -12,14 +12,16 @@ import 'services/services.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  runApp(const MyApp());
+  try {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+  } catch (e) {}
+  runApp(const GNR8());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class GNR8 extends StatelessWidget {
+  const GNR8({super.key});
 
   @override
   Widget build(BuildContext context) {
