@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
+import 'package:gnr8/services/services.dart';
 import 'package:gnr8/utils/utils.dart';
 
 class ChatWidget extends StatefulWidget {
@@ -15,8 +16,10 @@ class ChatWidget extends StatefulWidget {
 
 class _ChatWidgetState extends State<ChatWidget> {
   //* Variables and Services
+  AI _ai = AI();
   List<types.Message> _messages = [];
   final _user = const types.User(id: '82091008-a484-4a89-ae75-a22bf8d6f3ac');
+  final _chatGPT = const types.User(id: "chatGPT");
 
   //* Methods and Functions
   void _addMessage(types.Message message) {
@@ -31,15 +34,18 @@ class _ChatWidgetState extends State<ChatWidget> {
     return base64UrlEncode(values);
   }
 
-  void _handleSendPressed(types.PartialText message) {
+  void _handleSendPressed(types.PartialText message) async {
     final textMessage = types.TextMessage(
       author: _user,
       createdAt: DateTime.now().millisecondsSinceEpoch,
       id: randomString(),
       text: message.text,
     );
-
     _addMessage(textMessage);
+    dynamic res = await _ai.askOpenAI(message.text);
+    final responseMessage =
+        types.TextMessage(author: _chatGPT, id: randomString(), text: res);
+    _addMessage(responseMessage);
   }
 
   @override

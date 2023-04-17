@@ -48,7 +48,7 @@ Project _$ProjectFromJson(Map<String, dynamic> json) => Project(
 
 Map<String, dynamic> _$ProjectToJson(Project instance) => <String, dynamic>{
       'id': instance.id,
-      'owner': instance.owner,
+      'owner': instance.owner?.toJson(),
       'name': instance.name,
       'image': instance.image,
       'logo': instance.logo,
@@ -62,13 +62,13 @@ Map<String, dynamic> _$ProjectToJson(Project instance) => <String, dynamic>{
       'membershipCost': instance.membershipCost,
       'raised': instance.raised,
       'startDate': instance.startDate?.toIso8601String(),
-      'impact': instance.impact,
-      'sdgs': instance.sdgs,
+      'impact': instance.impact?.map((e) => e.toJson()).toList(),
+      'sdgs': instance.sdgs?.map((e) => e.toJson()).toList(),
       'video': instance.video,
       'gallery': instance.gallery,
-      'escert': instance.escert,
-      'documents': instance.documents,
-      'benefits': instance.benefits,
+      'escert': instance.escert?.toJson(),
+      'documents': instance.documents?.map((e) => e.toJson()).toList(),
+      'benefits': instance.benefits?.map((e) => e.toJson()).toList(),
     };
 
 Benefit _$BenefitFromJson(Map<String, dynamic> json) => Benefit(

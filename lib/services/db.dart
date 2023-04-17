@@ -1,5 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 
+import '../models/models.dart';
+
 class DatabaseService {
   final FirebaseDatabase db = FirebaseDatabase.instance;
 
@@ -17,6 +19,12 @@ class DatabaseService {
   }
 
   Future<dynamic> setRegen(Map<String, dynamic> data, String wallet) {
-    return regenRef.update(data);
+    return regenRef.child(wallet).update(data);
+  }
+
+  Future<dynamic> updateProject(
+    Project project,
+  ) {
+    return projectRef.child(project.id).update(project.toJson());
   }
 }

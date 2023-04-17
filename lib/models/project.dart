@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'project.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Project {
   final String id;
   late final Regen? owner;

@@ -28,7 +28,7 @@ class GNR8 extends StatelessWidget {
     return MaterialApp(
       theme: gnr8theme,
       debugShowCheckedModeBanner: false,
-      home: !kIsWeb ? HomePage() : ProjectWebPage(project: projects[1]),
+      home: !kIsWeb ? HomePage() : ProjectWebPage(project: projects[0]),
     );
   }
 }

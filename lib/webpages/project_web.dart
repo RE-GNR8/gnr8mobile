@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gnr8/services/db.dart';
 import 'package:gnr8/shared/shared.dart';
 import 'package:gnr8/utils/utils.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
@@ -19,7 +20,7 @@ class ProjectWebPage extends StatefulWidget {
 class _ProjectWebPageState extends State<ProjectWebPage>
     with TickerProviderStateMixin {
   //* Variables and Services
-
+  DatabaseService _db = DatabaseService();
   late TabController _controller;
   int _index = 0;
 
@@ -32,6 +33,9 @@ class _ProjectWebPageState extends State<ProjectWebPage>
   }
 
   //* Methods and Functions
+  void _support() {
+    _db.updateProject(widget.project);
+  }
 
   //* Dispose
   @override
@@ -221,7 +225,7 @@ class _ProjectWebPageState extends State<ProjectWebPage>
         color: AppColors.back,
       ),
       margin: EdgeInsets.all(50),
-      width: screen.width * .20,
+      width: screen.width * .30,
       padding: EdgeInsets.all(33),
       child: Column(
         children: [
@@ -422,7 +426,9 @@ class _ProjectWebPageState extends State<ProjectWebPage>
           ),
           backgroundColor: AppColors.complementary,
           shape: StadiumBorder()),
-      onPressed: () {},
+      onPressed: () {
+        _support();
+      },
       child: Text(
         "Support",
         style: TextStyle(

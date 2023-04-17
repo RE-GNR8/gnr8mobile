@@ -36,7 +36,13 @@ class AI {
       baseOption: HttpSetup(receiveTimeout: const Duration(seconds: 5)),
       isLog: true,
     );
-
-    return "";
+    try {
+      final request = CompleteText(
+          prompt: prompt, model: Model.kTextDavinci2, maxTokens: 500);
+      final response = await openAI.onCompletion(request: request);
+      return response.toString();
+    } catch (e) {
+      rethrow;
+    }
   }
 }
