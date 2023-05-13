@@ -7,8 +7,6 @@ import 'package:gnr8/utils/utils.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:gnr8/webpages/webpages.dart';
 
-import 'services/services.dart';
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
@@ -28,7 +26,7 @@ class GNR8 extends StatelessWidget {
     return MaterialApp(
       theme: gnr8theme,
       debugShowCheckedModeBanner: false,
-      home: !kIsWeb ? HomePage() : ProjectWebPage(project: projects[0]),
+      home: !kIsWeb ? HomePage() : WebHome(),
     );
   }
 }

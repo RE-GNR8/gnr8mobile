@@ -5,6 +5,10 @@ import 'package:google_mlkit_object_detection/google_mlkit_object_detection.dart
 
 class AI {
   late ObjectDetector _objectDetector;
+
+  String remoteModel =
+      "https://tfhub.dev/google/aiy/vision/classifier/plants_V1/1";
+
   Future<bool> processImage(File image) async {
     bool isPlant = false;
     print(image);
@@ -38,9 +42,9 @@ class AI {
     );
     try {
       final request = CompleteText(
-          prompt: prompt, model: Model.kTextDavinci2, maxTokens: 500);
-      final response = await openAI.onCompletion(request: request);
-      return response.toString();
+          prompt: prompt, model: Model.textDavinci3, maxTokens: 500);
+      final CTResponse? response = await openAI.onCompletion(request: request);
+      return response!.choices[0].text;
     } catch (e) {
       rethrow;
     }

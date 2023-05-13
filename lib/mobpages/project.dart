@@ -226,7 +226,7 @@ class _ProjectPageState extends State<ProjectPage>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          /* widget.project.video != null
+          widget.project.video != null
               ? Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -240,7 +240,7 @@ class _ProjectPageState extends State<ProjectPage>
                     VideoWidget(uri: "${widget.project.video}")
                   ],
                 )
-              : SizedBox(), */
+              : SizedBox(),
           Text(
             "Support the project!",
             style: theme.labelMedium,
